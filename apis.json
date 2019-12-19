@@ -1,0 +1,107 @@
+{
+    "name": "Spreaker",
+    "description": "Discover and listen to your favorite podcasts for free or sign up to create your own!",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/657-spreaker.jpg",
+    "tags": [
+        "general data",
+        "have api",
+        "music",
+        "podcasts",
+        "radio",
+        "relative data",
+        "service api",
+        "streams",
+        "target"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/spreaker\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Spreaker API",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/657-spreaker.jpg",
+            "humanURL": "http:\/\/spreaker.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/spreaker-api.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "http:\/\/api.spreaker.com\/"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.spreaker.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.spreaker.com"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/spreaker"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/spreaker"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/developers.spreaker.com"
+        },
+        {
+            "type": "Email",
+            "url": "info@spreaker.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@spreaker.com"
+        },
+        {
+            "type": "Email",
+            "url": "advertise@spreaker.com"
+        },
+        {
+            "type": "Email",
+            "url": "tonia.maffeo@spreaker.com"
+        },
+        {
+            "type": "Email",
+            "url": "press@spreaker.com"
+        },
+        {
+            "type": "Email",
+            "url": "legal@Spreaker.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/spreaker"
+        },
+        {
+            "type": "LinkedIn",
+            "url": "https:\/\/www.linkedin.com\/company\/spreaker\/"
+        },
+        {
+            "type": "Pricing",
+            "url": "http:\/\/www.spreaker.com\/plans"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/spreaker"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/spreaker.com"
+        }
+    ]
+}
