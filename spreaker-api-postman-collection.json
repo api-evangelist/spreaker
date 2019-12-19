@@ -1,0 +1,1943 @@
+{
+    "id": "f65e8e5d9ed5ec557703727921fd7791",
+    "name": "Spreaker API",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "b5bc683671caa3ef66328196593b09b6",
+            "name": "Get Categories",
+            "url": "httpapi.spreaker.com\/\/categories\/flat",
+            "description": "Retrieves all categories in Spreaker",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "2b9fce87ae17ffec6be58ecdb808f690",
+            "name": "Change Episode Image",
+            "url": "httpapi.spreaker.com\/\/episode\/<episode_id>\/image",
+            "description": "Change Episode Image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "episode_id",
+                    "description": "The unique episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "image_id",
+                    "description": "The id of the image to set to the episode. The image must be uploaded before using it (see Upload an image) and must belong to episode authors images storage.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "6e40325dc9f397e0c572ac8b8070e334",
+            "name": "Delete Episode",
+            "url": "httpapi.spreaker.com\/\/episode\/{episode_id}",
+            "description": "Deletes an episode. Theres no way to recover a deleted episode.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "episode_id",
+                    "description": "The unique episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "6dfe982ed9b4787bec293632cb9689b5",
+            "name": "Get Episode",
+            "url": "httpapi.spreaker.com\/\/episode\/{episode_id}",
+            "description": "Retrieves an episode by unique identifier.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "episode_id",
+                    "description": "The unique episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "78b0e7f79ae62a481ee92b32e01c8cb9",
+            "name": "Edit Episode",
+            "url": "httpapi.spreaker.com\/\/episode\/{episode_id}",
+            "description": "Edit episode info (eg. title, description, category, tags, ...)",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "category_id",
+                    "description": "Episode category",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "Episode description, max length 10k chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "episode_id",
+                    "description": "The unique episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": " Episode tags (comma separated)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": " Episode title, max length 40 chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "7616aefaf60773b8ac54a09959aa4560",
+            "name": "Get Episode Media List",
+            "url": "httpapi.spreaker.com\/\/episode\/{episode_id}\/media",
+            "description": "Get Episode Media List",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "episode_id",
+                    "description": "The unique episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "6eac3742b48be6e844366dd38df783a8",
+            "name": "Get Episode Streams",
+            "url": "httpapi.spreaker.com\/\/episode\/{episode_id}\/streams\/icy",
+            "description": "The response contains a collection of ICY streams.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "episode_id",
+                    "description": "The episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "08988be274d61638756241d6b3d009d7",
+            "name": "Get Episode Streams",
+            "url": "httpapi.spreaker.com\/\/episode\/{episode_id}\/streams\/rtmp",
+            "description": "The response contains a collection of RTMP \/ RTMPT streams.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "episode_id",
+                    "description": "The unique episode id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "f6139b3ecedd8a5b6571de0b57695e89",
+            "name": "Get Live Episodes",
+            "url": "httpapi.spreaker.com\/\/episodes\/live",
+            "description": "Retrieves all live episodes at the moment of the request",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "show_id",
+                    "description": "An list of show_id applied as a filter",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "4d98ea1999b418b16418eefa2402f9d6",
+            "name": "Explore Category Items",
+            "url": "httpapi.spreaker.com\/\/explore\/{category_id}",
+            "description": "This API returns information and items of a specific category. The response contains two properties at root level:",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "explore_category",
+                    "description": "contains category information, the exact same information exported by \/explore\/categories API",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "items",
+                    "description": "contains a sorted list of shows or episodes, depending on the category type (type 1 and 3 contain episodes, type 2 contains shows)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "c29901f5fffc0caadabf76739b804750",
+            "name": "Create Media",
+            "url": "httpapi.spreaker.com\/\/library\/{user_id}",
+            "description": "Upload a new Media in the specified user library",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Filedata",
+                    "description": " The file to upload, encoded multipart\/form-data",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "length",
+                    "description": "The media length in milliseconds. It will be autodetected is missing. The real length will be calculated while encoding either if this property is specified.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "style_id",
+                    "description": "The music style associated to this media. Can be only a Style supported by Spreaker",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "The media type: can be one of SONG, JINGLE, LOOP, UNKNOWN, EFFECT, EPISODE",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "9e9284a17bcb9972ec8f96744f0dd807",
+            "name": "Get Owned Media",
+            "url": "httpapi.spreaker.com\/\/library\/{user_id}\/effects\/owned",
+            "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "sort_col",
+                    "description": "The column upon which the results are sorted. Accepted values: name, created_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction of sorting. Accepted values: ASC, DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "cf8f1e1dcba7186062f58d628af24b53",
+            "name": "Get Owned Media",
+            "url": "httpapi.spreaker.com\/\/library\/{user_id}\/jingles\/owned",
+            "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "sort_col",
+                    "description": "The column upon which the results are sorted. Accepted values: name, created_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction of sorting. Accepted values: ASC, DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "8be0a19d654c436833d80b3f76ef277b",
+            "name": "Get Owned Media",
+            "url": "httpapi.spreaker.com\/\/library\/{user_id}\/loops\/owned",
+            "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "sort_col",
+                    "description": "The column upon which the results are sorted. Accepted values: name, created_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction of sorting. Accepted values: ASC, DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "1a6e1b9f68f82c2de50d3ba454aac294",
+            "name": "Get Owned Media",
+            "url": "httpapi.spreaker.com\/\/library\/{user_id}\/songs\/owned",
+            "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "sort_col",
+                    "description": "The column upon which the results are sorted. Accepted values: name, created_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction of sorting. Accepted values: ASC, DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "Users id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "53d8ef79273ffed52394deba1b8785ba",
+            "name": "Get Owned Media",
+            "url": "httpapi.spreaker.com\/\/library\/{user_id}\/soundtracks\/owned",
+            "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "sort_col",
+                    "description": "The column upon which the results are sorted. Accepted values: name, created_at",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort_dir",
+                    "description": "The direction of sorting. Accepted values: ASC, DESC",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "b64bc71074c5ee2a865d07eb66d19f83",
+            "name": "Get Top Live Episodes",
+            "url": "httpapi.spreaker.com\/\/lives\/top",
+            "description": "Retrieves live episodes sorted by rank",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "I",
+                    "description": "The rank is language - based. This parameter specify which language you want to use to filter contents",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "570e51e694d556691196df06ba8527c3",
+            "name": "Get Media",
+            "url": "httpapi.spreaker.com\/\/media\/{media_id}",
+            "description": "Retrieves a Media by unique identifier.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "727d61ad47c087294697065089c5cb47",
+            "name": "Search users, shows and episodes",
+            "url": "httpapi.spreaker.com\/\/search\/{query}",
+            "description": "Search users, shows and episodes",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "query",
+                    "description": "Search query",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "fd54f7875fa6b4fc91819a99b0a98205",
+            "name": "Search Shows",
+            "url": "httpapi.spreaker.com\/\/show\/search\/{query}",
+            "description": "This API allows to find shows.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "query",
+                    "description": "Search query",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "a9b701f10913ff7baf2aa1d6a888e9bf",
+            "name": "Dele Show",
+            "url": "httpapi.spreaker.com\/\/show\/{show_id}",
+            "description": "Deletes a show. Theres no way to recover a deleted show. Only show without episodes in it can be deleted.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "description",
+                    "description": "Episode description, max length 10k chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email",
+                    "description": "Shows email contact",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "facebook_url",
+                    "description": "Shows facebook page url",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "show_id",
+                    "description": "The show id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skype_name",
+                    "description": "Shows skypy account name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sms_number",
+                    "description": "Shows sms number (eg. numer to text to)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tel_number",
+                    "description": "Shows telephone number (eg. number to call for interviews)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": " Episode title, max length 40 chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "twitter_name",
+                    "description": "Shows twitter account name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "website_url",
+                    "description": " Shows website url",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "d40e8765c1df7dadbe69c33190e0bb18",
+            "name": "Get Show",
+            "url": "httpapi.spreaker.com\/\/show\/{show_id}",
+            "description": "Retrieves show information.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "show_id",
+                    "description": "The show id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "de371a7a3bb7c595bda4c6cca2503bb2",
+            "name": "Edit Show",
+            "url": "httpapi.spreaker.com\/\/show\/{show_id}",
+            "description": "Edit show info (name, description and contacts).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "3ffc993d0b262bdf3b2a30c203753a1c",
+            "name": "Get Show Episodes",
+            "url": "httpapi.spreaker.com\/\/show\/{show_id}\/episodes",
+            "description": "Retrieves all listenable episodes by show (both live and podcast, ordered by published_at DESC).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "03d54e7e194a068b1bf1b2ff5b957713",
+            "name": "Create podcast",
+            "url": "httpapi.spreaker.com\/\/show\/{show_id}\/episodes",
+            "description": "Creates new podcast episode.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "category_id",
+                    "description": "Episode category",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "description",
+                    "description": "Episode description, max length 10k chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "download_enabled",
+                    "description": "Enable \/ disable download (defaults to true)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "explicit",
+                    "description": "True if the episode contains explicit content (defaults to false)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "hidden",
+                    "description": "True if the episode should be private (defaults to false)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "media_id",
+                    "description": "The single media_id or ordered list of media_id that compose the episode",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "shares",
+                    "description": "The channels on which this episode has to be shared. ",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "show_id",
+                    "description": "The show id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tags",
+                    "description": " Episode tags (comma separated)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "title",
+                    "description": " Episode title, max length 40 chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "f3d62a8c83cd9f0abf2fe83d0cdfd06e",
+            "name": "Get All Show Episodes",
+            "url": "httpapi.spreaker.com\/\/show\/{show_id}\/episodes\/all",
+            "description": "Retrieves all episodes by show (both live and podcast, ordered by published_at DESC).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "show_id",
+                    "description": "The show id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "36e17ace5d07ca0e9a66de58790954b2",
+            "name": "Create Show",
+            "url": "httpapi.spreaker.com\/\/shows",
+            "description": "Create a new Show.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "title",
+                    "description": " Episode title, max length 40 chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "5efa0e7b1a015ccbeaab2797b776a408",
+            "name": "Get List of Followers",
+            "url": "httpapi.spreaker.com\/\/user\/{followed_id}\/fans",
+            "description": "Get List of Followers",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "followed_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "f5590341661875ad50ea7206ef7b5f6d",
+            "name": "Follow User",
+            "url": "httpapi.spreaker.com\/\/user\/{followed_id}\/fans",
+            "description": "Follow User",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "followed_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "3f5e01472320f6f673696466a2affea6",
+            "name": "Unfollow User",
+            "url": "httpapi.spreaker.com\/\/user\/{followed_id}\/fans\/{follower_id}",
+            "description": "Unfollow User",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "followed_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "follower_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "1f8f426517c605e5e0956740bdd7b650",
+            "name": "Get List of Following",
+            "url": "httpapi.spreaker.com\/\/user\/{follower_id}\/users\/fan",
+            "description": "Get List of Following",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "follower_id",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "de70eee0361e810c158bd35cb50a0a66",
+            "name": "Get User",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}",
+            "description": "Retrieves an user by unique identifier.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "bf34b385681eed4b36059d14bc336275",
+            "name": "Edit User",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}",
+            "description": "Edit user info (eg. fullname, description aka biography, gender, birthday, ...).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "description",
+                    "description": "Episode description, max length 10k chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fullname",
+                    "description": "User fullname, max length 30 chars",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "gender",
+                    "description": "User gender: can be MALE or FEMALE",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "show_age",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "40875c3e22865600f8644bd57a936490",
+            "name": "Get User Actions",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/actions",
+            "description": "Retrieves the user actions settings",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "EPISODE_BROADCAST",
+                    "description": "The user has published a new episode ( either live or podcast )",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "FACEBOOK",
+                    "description": " The user wants to share on facebook the specified action",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "RADIO_FOLLOW",
+                    "description": "The user starts following a radio",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "RADIO_MESSAGE",
+                    "description": "The user has sent a message to a radio",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "SHOW_FOLLOW",
+                    "description": " The user starts following a show",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "SHOW_MESSAGE",
+                    "description": " The user has sent a message to a show",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "TWITTER",
+                    "description": "The user wants to share on twitter the specified action",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "USER_FOLLOW",
+                    "description": "The user starts following another user",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "Users id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "fc0381024858a9a561936d360b094445",
+            "name": "Facebook Settings",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/actions\/facebook",
+            "description": "Edit facebook share settings.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "EPISODE_BROADCAST",
+                    "description": "The user has published a new episode ( either live or podcast )",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "RADIO_FOLLOW",
+                    "description": "The user starts following a radio",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "RADIO_MESSAGE",
+                    "description": "The user has sent a message to a radio",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "SHOW_FOLLOW",
+                    "description": " The user starts following a show",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "SHOW_MESSAGE",
+                    "description": " The user has sent a message to a show",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "USER_FOLLOW",
+                    "description": "The user starts following another user",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "689dcc9acc543fdfdf5eb571613cbcae",
+            "name": "Twitter Settings",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/actions\/twitter",
+            "description": "Edit twitter share settings.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "EPISODE_BROADCAST",
+                    "description": "The user has published a new episode ( either live or podcast )",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "RADIO_FOLLOW",
+                    "description": "The user starts following a radio",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "SHOW_FOLLOW",
+                    "description": " The user starts following a show",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "USER_FOLLOW",
+                    "description": "The user starts following another user",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "4a659c9f3ff6cd447bd4cb8b778eaae4",
+            "name": "Delete Device",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/device\/{token}",
+            "description": "Delete the association from a mobile device and a registered user",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "token",
+                    "description": "The device token.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "62133bd589db0c13b05ccaadaa5ff0dd",
+            "name": "Create Device",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/devices",
+            "description": "Creates a new device.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "application_id",
+                    "description": "The application related to the request",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Delete Device",
+                    "description": "The user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "device_name",
+                    "description": "The device name, max length 255",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "device_token",
+                    "description": "The device token, max length 255",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "2eb6e0a0313257cbadbc698a8a9affaf",
+            "name": "Get User Episodes",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/episodes",
+            "description": "Retrieves all listenable episodes by user (both live and podcast, ordered by published_at DESC).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "5ca54d92e7ef2346f48445a97cf2d410",
+            "name": "Change User Profile Image",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/image",
+            "description": "Change User Profile Image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "image_id",
+                    "description": "The id of the image to set to the episode. The image must be uploaded before using it (see Upload an image) and must belong to episode authors images storage.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "c6072137234e5d1e2115336e148712c8",
+            "name": "Upload An Image",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/images",
+            "description": "Upload An Image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Filedata",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "a58c2271eed079ddf06b8aa22c757d3a",
+            "name": "Get Favorite Live Episodes",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/lives\/fan",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "\/user\/{user_id}\/lives\/fan",
+                    "description": "Users id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "41e1bba21c31d8f25bc182b53d7c0428",
+            "name": "Newsfeed",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/newsfeed",
+            "description": "This API returns a list of newsfeed items. The request MUST be authenticated (an user can only fetch its own newsfeed).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "last_id",
+                    "description": " The last newsfeed item received in the previous request, so that this request will contains immediately subsequent items",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "max_per_page",
+                    "description": " Max number of items in the response",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "c7a5bdf7b69fa96d612d4017c74d37d4",
+            "name": "GEt Shows By Author",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/shows\/author",
+            "description": "",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "620f4fcf35a6f64e1b5dc98808b4f0bb",
+            "name": "Get Favorite Shows",
+            "url": "httpapi.spreaker.com\/\/user\/{user_id}\/shows\/fan",
+            "description": "Retrieves the list of shows whose authors are followed by <user_id>.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "latest_episode",
+                    "description": "True (1) to enable the export of the latest episode. The latest episode could be the current live (if any) or the latest podcast.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "description": "The unique user id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "bedc18555b8eef600eaa40e572afa1be",
+            "name": "Search Users",
+            "url": "httpapi.spreaker.com\/\/users\/search\/{query}",
+            "description": "This API allows to find users. ",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "query",
+                    "description": "Search query",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "f20bf798d8f117fd87e0bd88321847c5",
+            "name": "Get Authenticated User",
+            "url": "httpapi.spreaker.com\/\/whoami",
+            "description": "Retrieves information about the authenticated user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        },
+        {
+            "id": "6c04bdf9cad42001f1308cbcb811efe6",
+            "name": "Change Show Image",
+            "url": "httpapi.spreaker.com\/show\/{show_id}\/image",
+            "description": "Change Show Image",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "image_id",
+                    "description": "The id of the image to set to the episode. The image must be uploaded before using it (see Upload an image) and must belong to episode authors images storage.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "show_id",
+                    "description": "The show id.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "rawModeData": ""
+        }
+    ]
+}
