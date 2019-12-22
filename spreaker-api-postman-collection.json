@@ -1,5 +1,5 @@
 {
-    "id": "f65e8e5d9ed5ec557703727921fd7791",
+    "id": "1357685d489c585ce2306eaf8d0382a6",
     "name": "Spreaker API",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "b5bc683671caa3ef66328196593b09b6",
+            "id": "85855819b2b821180f8bbaea91c368ed",
             "name": "Get Categories",
             "url": "httpapi.spreaker.com\/\/categories\/flat",
             "description": "Retrieves all categories in Spreaker",
@@ -29,11 +29,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "2b9fce87ae17ffec6be58ecdb808f690",
+            "id": "234d3622bf6f174ff53ab4b6d4b93fc6",
             "name": "Change Episode Image",
             "url": "httpapi.spreaker.com\/\/episode\/<episode_id>\/image",
             "description": "Change Episode Image",
@@ -67,11 +67,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "6e40325dc9f397e0c572ac8b8070e334",
+            "id": "5ecb425de753702e64ca930d8395b55c",
             "name": "Delete Episode",
             "url": "httpapi.spreaker.com\/\/episode\/{episode_id}",
             "description": "Deletes an episode. Theres no way to recover a deleted episode.",
@@ -98,11 +98,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "6dfe982ed9b4787bec293632cb9689b5",
+            "id": "ca2bdb16df60f8f15e4c2fd04e6a1b62",
             "name": "Get Episode",
             "url": "httpapi.spreaker.com\/\/episode\/{episode_id}",
             "description": "Retrieves an episode by unique identifier.",
@@ -129,11 +129,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "78b0e7f79ae62a481ee92b32e01c8cb9",
+            "id": "d806fd58bc1ab73a2f9e7bbaeebb2366",
             "name": "Edit Episode",
             "url": "httpapi.spreaker.com\/\/episode\/{episode_id}",
             "description": "Edit episode info (eg. title, description, category, tags, ...)",
@@ -188,11 +188,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "7616aefaf60773b8ac54a09959aa4560",
+            "id": "91b0ff540163f592a9713711807d4713",
             "name": "Get Episode Media List",
             "url": "httpapi.spreaker.com\/\/episode\/{episode_id}\/media",
             "description": "Get Episode Media List",
@@ -219,11 +219,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "6eac3742b48be6e844366dd38df783a8",
+            "id": "b3e77dc165beb91c67f4f86ede069c9b",
             "name": "Get Episode Streams",
             "url": "httpapi.spreaker.com\/\/episode\/{episode_id}\/streams\/icy",
             "description": "The response contains a collection of ICY streams.",
@@ -250,11 +250,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "08988be274d61638756241d6b3d009d7",
+            "id": "71e2d87338769e831b243eb9cdddc399",
             "name": "Get Episode Streams",
             "url": "httpapi.spreaker.com\/\/episode\/{episode_id}\/streams\/rtmp",
             "description": "The response contains a collection of RTMP \/ RTMPT streams.",
@@ -281,11 +281,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "f6139b3ecedd8a5b6571de0b57695e89",
+            "id": "0d949ba9372898b17b9c0871b3fad5db",
             "name": "Get Live Episodes",
             "url": "httpapi.spreaker.com\/\/episodes\/live",
             "description": "Retrieves all live episodes at the moment of the request",
@@ -312,11 +312,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "4d98ea1999b418b16418eefa2402f9d6",
+            "id": "22ee21a1a263f1831cdef6faf6402af8",
             "name": "Explore Category Items",
             "url": "httpapi.spreaker.com\/\/explore\/{category_id}",
             "description": "This API returns information and items of a specific category. The response contains two properties at root level:",
@@ -350,11 +350,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "c29901f5fffc0caadabf76739b804750",
+            "id": "3fccab466dacad9432600f3e8af2969a",
             "name": "Create Media",
             "url": "httpapi.spreaker.com\/\/library\/{user_id}",
             "description": "Upload a new Media in the specified user library",
@@ -409,11 +409,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "9e9284a17bcb9972ec8f96744f0dd807",
+            "id": "3ce5ad6e6998705ad8d9201c9a5ed9ef",
             "name": "Get Owned Media",
             "url": "httpapi.spreaker.com\/\/library\/{user_id}\/effects\/owned",
             "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
@@ -454,11 +454,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "cf8f1e1dcba7186062f58d628af24b53",
+            "id": "51c8357412bb6d88da7683de58fdf811",
             "name": "Get Owned Media",
             "url": "httpapi.spreaker.com\/\/library\/{user_id}\/jingles\/owned",
             "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
@@ -499,11 +499,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "8be0a19d654c436833d80b3f76ef277b",
+            "id": "7b0d55bb792013c8242b1ab9bf390a0e",
             "name": "Get Owned Media",
             "url": "httpapi.spreaker.com\/\/library\/{user_id}\/loops\/owned",
             "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
@@ -544,11 +544,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "1a6e1b9f68f82c2de50d3ba454aac294",
+            "id": "68898ba077b79560d1e6da2950e3675a",
             "name": "Get Owned Media",
             "url": "httpapi.spreaker.com\/\/library\/{user_id}\/songs\/owned",
             "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
@@ -589,11 +589,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "53d8ef79273ffed52394deba1b8785ba",
+            "id": "7ce56aede0b9afeae19059411dabb958",
             "name": "Get Owned Media",
             "url": "httpapi.spreaker.com\/\/library\/{user_id}\/soundtracks\/owned",
             "description": "Get a paginated list of media owned by <user_id> filtered by type:.",
@@ -634,11 +634,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "b64bc71074c5ee2a865d07eb66d19f83",
+            "id": "b89ce9728813b547eda80648a679eb8c",
             "name": "Get Top Live Episodes",
             "url": "httpapi.spreaker.com\/\/lives\/top",
             "description": "Retrieves live episodes sorted by rank",
@@ -665,11 +665,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "570e51e694d556691196df06ba8527c3",
+            "id": "9913f3306b7850e2229c1bce5c38ef4d",
             "name": "Get Media",
             "url": "httpapi.spreaker.com\/\/media\/{media_id}",
             "description": "Retrieves a Media by unique identifier.",
@@ -688,11 +688,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "727d61ad47c087294697065089c5cb47",
+            "id": "1d16956e0b2fc246a62c4ebd7ccf06a6",
             "name": "Search users, shows and episodes",
             "url": "httpapi.spreaker.com\/\/search\/{query}",
             "description": "Search users, shows and episodes",
@@ -719,11 +719,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "fd54f7875fa6b4fc91819a99b0a98205",
+            "id": "f0d3146cd6769294a363abe1c689ff08",
             "name": "Search Shows",
             "url": "httpapi.spreaker.com\/\/show\/search\/{query}",
             "description": "This API allows to find shows.",
@@ -750,11 +750,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "a9b701f10913ff7baf2aa1d6a888e9bf",
+            "id": "b14b56f18da3e81de8c281e0e2196b71",
             "name": "Dele Show",
             "url": "httpapi.spreaker.com\/\/show\/{show_id}",
             "description": "Deletes a show. Theres no way to recover a deleted show. Only show without episodes in it can be deleted.",
@@ -844,11 +844,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "d40e8765c1df7dadbe69c33190e0bb18",
+            "id": "d3ea9529fedfb9e3ef58e41b25b1f4f5",
             "name": "Get Show",
             "url": "httpapi.spreaker.com\/\/show\/{show_id}",
             "description": "Retrieves show information.",
@@ -875,11 +875,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "de371a7a3bb7c595bda4c6cca2503bb2",
+            "id": "35afa4487ca503fdda573208e041a899",
             "name": "Edit Show",
             "url": "httpapi.spreaker.com\/\/show\/{show_id}",
             "description": "Edit show info (name, description and contacts).",
@@ -898,11 +898,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "3ffc993d0b262bdf3b2a30c203753a1c",
+            "id": "87a823c9eab5282da8282109fc817cac",
             "name": "Get Show Episodes",
             "url": "httpapi.spreaker.com\/\/show\/{show_id}\/episodes",
             "description": "Retrieves all listenable episodes by show (both live and podcast, ordered by published_at DESC).",
@@ -921,11 +921,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "03d54e7e194a068b1bf1b2ff5b957713",
+            "id": "32b44c16781d5fec4b2be442e4117926",
             "name": "Create podcast",
             "url": "httpapi.spreaker.com\/\/show\/{show_id}\/episodes",
             "description": "Creates new podcast episode.",
@@ -1015,11 +1015,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "f3d62a8c83cd9f0abf2fe83d0cdfd06e",
+            "id": "d6ddc83efe1407ac188479c961dfcb97",
             "name": "Get All Show Episodes",
             "url": "httpapi.spreaker.com\/\/show\/{show_id}\/episodes\/all",
             "description": "Retrieves all episodes by show (both live and podcast, ordered by published_at DESC).",
@@ -1046,11 +1046,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "36e17ace5d07ca0e9a66de58790954b2",
+            "id": "9a854e6fcd2c0e4d29d6e1581536377b",
             "name": "Create Show",
             "url": "httpapi.spreaker.com\/\/shows",
             "description": "Create a new Show.",
@@ -1077,11 +1077,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "5efa0e7b1a015ccbeaab2797b776a408",
+            "id": "c0f5a9e28b4ffae440f59bcb460d29e0",
             "name": "Get List of Followers",
             "url": "httpapi.spreaker.com\/\/user\/{followed_id}\/fans",
             "description": "Get List of Followers",
@@ -1108,11 +1108,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "f5590341661875ad50ea7206ef7b5f6d",
+            "id": "80ac0baac47808b030aae0dd51e8e511",
             "name": "Follow User",
             "url": "httpapi.spreaker.com\/\/user\/{followed_id}\/fans",
             "description": "Follow User",
@@ -1139,11 +1139,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "3f5e01472320f6f673696466a2affea6",
+            "id": "2f7f71676ee2e8c27d202d3994e465c7",
             "name": "Unfollow User",
             "url": "httpapi.spreaker.com\/\/user\/{followed_id}\/fans\/{follower_id}",
             "description": "Unfollow User",
@@ -1177,11 +1177,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "1f8f426517c605e5e0956740bdd7b650",
+            "id": "5d75056cb07944d70f8c1c695affdeb2",
             "name": "Get List of Following",
             "url": "httpapi.spreaker.com\/\/user\/{follower_id}\/users\/fan",
             "description": "Get List of Following",
@@ -1208,11 +1208,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "de70eee0361e810c158bd35cb50a0a66",
+            "id": "e849a5a40273c156c2db14f50d709938",
             "name": "Get User",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}",
             "description": "Retrieves an user by unique identifier.",
@@ -1239,11 +1239,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "bf34b385681eed4b36059d14bc336275",
+            "id": "2a4e1d8538f8836a5d2ecd40566776d7",
             "name": "Edit User",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}",
             "description": "Edit user info (eg. fullname, description aka biography, gender, birthday, ...).",
@@ -1298,11 +1298,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "40875c3e22865600f8644bd57a936490",
+            "id": "c699debebaf36209451aabd59101082e",
             "name": "Get User Actions",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/actions",
             "description": "Retrieves the user actions settings",
@@ -1385,11 +1385,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "fc0381024858a9a561936d360b094445",
+            "id": "7e78c3181f973cfda41f7fce93947776",
             "name": "Facebook Settings",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/actions\/facebook",
             "description": "Edit facebook share settings.",
@@ -1458,11 +1458,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "689dcc9acc543fdfdf5eb571613cbcae",
+            "id": "600e587c53245bff2330777e5c46d79d",
             "name": "Twitter Settings",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/actions\/twitter",
             "description": "Edit twitter share settings.",
@@ -1517,11 +1517,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "4a659c9f3ff6cd447bd4cb8b778eaae4",
+            "id": "77b24ece7a509bd05f885cc122d0ef38",
             "name": "Delete Device",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/device\/{token}",
             "description": "Delete the association from a mobile device and a registered user",
@@ -1555,11 +1555,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "62133bd589db0c13b05ccaadaa5ff0dd",
+            "id": "33bd2183f59ca4fa37f93cddfb4c8b71",
             "name": "Create Device",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/devices",
             "description": "Creates a new device.",
@@ -1607,11 +1607,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "2eb6e0a0313257cbadbc698a8a9affaf",
+            "id": "a808559f1dd7a0886fd567c0a6e4fbd6",
             "name": "Get User Episodes",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/episodes",
             "description": "Retrieves all listenable episodes by user (both live and podcast, ordered by published_at DESC).",
@@ -1630,11 +1630,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "5ca54d92e7ef2346f48445a97cf2d410",
+            "id": "da751ecd557858fa352df47cc5ad2f21",
             "name": "Change User Profile Image",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/image",
             "description": "Change User Profile Image",
@@ -1668,11 +1668,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "c6072137234e5d1e2115336e148712c8",
+            "id": "a12a18852c35dc62839cfb314a2e7dc9",
             "name": "Upload An Image",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/images",
             "description": "Upload An Image",
@@ -1699,11 +1699,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "a58c2271eed079ddf06b8aa22c757d3a",
+            "id": "b2ec92570cb78b53c2868657dbc3f5b5",
             "name": "Get Favorite Live Episodes",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/lives\/fan",
             "description": "",
@@ -1730,11 +1730,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "41e1bba21c31d8f25bc182b53d7c0428",
+            "id": "b4fb1876f43d3d314c9b8e958d74bcb1",
             "name": "Newsfeed",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/newsfeed",
             "description": "This API returns a list of newsfeed items. The request MUST be authenticated (an user can only fetch its own newsfeed).",
@@ -1775,11 +1775,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "c7a5bdf7b69fa96d612d4017c74d37d4",
+            "id": "0f2c7d90952b5022ecd6d631bb0d59b4",
             "name": "GEt Shows By Author",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/shows\/author",
             "description": "",
@@ -1806,11 +1806,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "620f4fcf35a6f64e1b5dc98808b4f0bb",
+            "id": "2bf6ed8226187231de94c60340dbfee7",
             "name": "Get Favorite Shows",
             "url": "httpapi.spreaker.com\/\/user\/{user_id}\/shows\/fan",
             "description": "Retrieves the list of shows whose authors are followed by <user_id>.",
@@ -1844,11 +1844,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "bedc18555b8eef600eaa40e572afa1be",
+            "id": "67872d8763a1d4ba5aea8d623aef97d2",
             "name": "Search Users",
             "url": "httpapi.spreaker.com\/\/users\/search\/{query}",
             "description": "This API allows to find users. ",
@@ -1875,11 +1875,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "f20bf798d8f117fd87e0bd88321847c5",
+            "id": "d1bc81c7018eb3920ca15bcb3a2f501b",
             "name": "Get Authenticated User",
             "url": "httpapi.spreaker.com\/\/whoami",
             "description": "Retrieves information about the authenticated user.",
@@ -1898,11 +1898,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         },
         {
-            "id": "6c04bdf9cad42001f1308cbcb811efe6",
+            "id": "8bf34b0a39bda7dc1f3f68341243bfb1",
             "name": "Change Show Image",
             "url": "httpapi.spreaker.com\/show\/{show_id}\/image",
             "description": "Change Show Image",
@@ -1936,7 +1936,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f65e8e5d9ed5ec557703727921fd7791",
+            "collectionId": "1357685d489c585ce2306eaf8d0382a6",
             "rawModeData": ""
         }
     ]
