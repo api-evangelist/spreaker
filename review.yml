@@ -1,0 +1,104 @@
+aid: spreaker
+name: Spreaker
+review:
+  question: Does Spreaker expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Spreaker's entire public developer
+    surface is the v2 REST API over HTTPS at api.spreaker.com. There is no
+    server-push transport (WebSocket or SSE) documented on Spreaker's own API
+    to model. Audio delivery is plain HTTP - episodes are streamed and
+    downloaded over HTTPS (GET /v2/episodes/{id}/play and
+    GET /v2/episodes/{id}/download) and distributed as RSS feeds to podcast
+    directories - not over a WebSocket. There is nothing bidirectional or
+    realtime to describe with AsyncAPI.
+findings:
+  summary: |
+    Spreaker does not publish a documented public WebSocket API. Spreaker is a
+    podcast hosting, distribution, and monetization platform owned by
+    iHeartMedia. Its public API is a request/response REST API (v2), based at
+    https://api.spreaker.com/v2, authenticated with OAuth2 (Bearer tokens). All
+    documented interactions - managing users, shows, episodes, statistics,
+    search, and advertising campaigns - are ordinary HTTP verbs (GET/POST/PUT/
+    DELETE) returning JSON. Audio playback and downloads are served over HTTPS,
+    and podcast distribution happens through RSS feeds. No realtime,
+    bidirectional, or streaming WebSocket (ws:// or wss://) endpoint is
+    documented anywhere in the Spreaker developer guides or API reference as of
+    the review date.
+  openSource: |
+    Spreaker's platform is a proprietary hosted SaaS - the core service is not
+    open source. Spreaker does publish an official open-source JavaScript API
+    SDK (github.com/spreaker/api-sdk-js) to help developers call the v2 REST
+    API, but the API and platform themselves are closed and hosted.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.spreaker.com/v2
+      documented: true
+      note: The entire public API. OAuth2 Bearer auth; GET is public unless noted, writes require a token.
+    - protocol: OAuth2
+      scheme: https
+      baseURL: https://api.spreaker.com/oauth2/token
+      documented: true
+      note: Authorization at https://www.spreaker.com/oauth2/authorize, token exchange and refresh at https://api.spreaker.com/oauth2/token, scope basic.
+    - protocol: HTTP Media
+      scheme: https
+      documented: true
+      note: Episode audio is streamed (/play) and downloaded (/download) over HTTPS, and distributed as RSS. Not a WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Spreaker's developer guides or v2 API reference as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.spreaker.com/v2/me
+    - GET    https://api.spreaker.com/v2/users/{user_id}
+    - POST   https://api.spreaker.com/v2/users/{user_id}
+    - GET    https://api.spreaker.com/v2/users/{user_id}/followers
+    - GET    https://api.spreaker.com/v2/users/{user_id}/followings
+    - PUT    https://api.spreaker.com/v2/users/{user_id}/followings/{following_id}
+    - DELETE https://api.spreaker.com/v2/users/{user_id}/followings/{following_id}
+    - GET    https://api.spreaker.com/v2/shows/{show_id}
+    - POST   https://api.spreaker.com/v2/shows
+    - POST   https://api.spreaker.com/v2/shows/{show_id}
+    - DELETE https://api.spreaker.com/v2/shows/{show_id}
+    - GET    https://api.spreaker.com/v2/users/{user_id}/shows
+    - GET    https://api.spreaker.com/v2/episodes/{episode_id}
+    - POST   https://api.spreaker.com/v2/shows/{show_id}/episodes
+    - POST   https://api.spreaker.com/v2/episodes/{episode_id}
+    - DELETE https://api.spreaker.com/v2/episodes/{episode_id}
+    - GET    https://api.spreaker.com/v2/episodes/{episode_id}/play
+    - GET    https://api.spreaker.com/v2/episodes/{episode_id}/download
+    - GET    https://api.spreaker.com/v2/shows/{show_id}/episodes
+    - GET    https://api.spreaker.com/v2/episodes/{episode_id}/messages
+    - GET    https://api.spreaker.com/v2/episodes/{episode_id}/chapters
+    - GET    https://api.spreaker.com/v2/users/{user_id}/statistics
+    - GET    https://api.spreaker.com/v2/shows/{show_id}/statistics/plays
+    - GET    https://api.spreaker.com/v2/episodes/{episode_id}/statistics/plays
+    - GET    https://api.spreaker.com/v2/search
+    - GET    https://api.spreaker.com/v2/advertisers
+    - GET    https://api.spreaker.com/v2/campaigns
+    - GET    https://api.spreaker.com/v2/lineitems
+sources:
+  - url: https://developers.spreaker.com/guides/overview/
+    type: Documentation
+    note: v2 base URL, HTTPS-only, OAuth2, pagination (50 default, 100 max, next_url), 429 rate limiting. No WebSocket mentioned.
+  - url: https://developers.spreaker.com/guides/authentication/
+    type: Documentation
+    note: OAuth2 authorize/token/refresh flow, Bearer header usage, scope basic.
+  - url: https://developers.spreaker.com/api/
+    type: APIReference
+    note: Full v2 endpoint reference - users, shows, episodes, statistics, search, campaigns. All REST.
+  - url: https://github.com/spreaker/api-sdk-js
+    type: SourceCode
+    note: Official open-source JavaScript SDK wrapping the v2 REST API. Platform itself is proprietary.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Spreaker's entire public API is
+    request/response REST over HTTPS with OAuth2. No AsyncAPI document was
+    created because there is no server-push or bidirectional transport on
+    Spreaker's own API to model; audio is delivered over plain HTTPS and RSS.

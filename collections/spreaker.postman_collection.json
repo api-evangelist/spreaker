@@ -1,0 +1,390 @@
+{
+  "info": {
+    "name": "Spreaker API",
+    "description": "The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. Base URL: https://api.spreaker.com/v2. GET requests are public unless noted; PUT, POST, and DELETE requests require an OAuth2 Bearer token. Authorize at https://www.spreaker.com/oauth2/authorize and exchange tokens at https://api.spreaker.com/oauth2/token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{accessToken}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.spreaker.com/v2", "type": "string" },
+    { "key": "accessToken", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Retrieve the authenticated user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/me", "host": ["{{baseUrl}}"], "path": ["me"] },
+            "description": "Returns the user associated with the OAuth2 access token."
+          }
+        },
+        {
+          "name": "Retrieve a user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id", "host": ["{{baseUrl}}"], "path": ["users", ":user_id"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Returns a single user's public profile."
+          }
+        },
+        {
+          "name": "Update a user",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [] },
+            "url": { "raw": "{{baseUrl}}/users/:user_id", "host": ["{{baseUrl}}"], "path": ["users", ":user_id"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Updates the profile of the authenticated user."
+          }
+        },
+        {
+          "name": "Retrieve a user's followers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/followers", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "followers"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Returns a paginated list of the user's followers."
+          }
+        },
+        {
+          "name": "Retrieve who a user follows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/followings", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "followings"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Returns a paginated list of users this user follows."
+          }
+        },
+        {
+          "name": "Follow a user",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/followings/:following_id", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "followings", ":following_id"], "variable": [{ "key": "user_id", "value": "" }, { "key": "following_id", "value": "" }] },
+            "description": "Follows another user."
+          }
+        },
+        {
+          "name": "Unfollow a user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/followings/:following_id", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "followings", ":following_id"], "variable": [{ "key": "user_id", "value": "" }, { "key": "following_id", "value": "" }] },
+            "description": "Unfollows a user."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shows",
+      "item": [
+        {
+          "name": "Create a show",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [{ "key": "title", "value": "", "type": "text" }] },
+            "url": { "raw": "{{baseUrl}}/shows", "host": ["{{baseUrl}}"], "path": ["shows"] },
+            "description": "Creates a new podcast show for the authenticated user."
+          }
+        },
+        {
+          "name": "Retrieve a show",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/:show_id", "host": ["{{baseUrl}}"], "path": ["shows", ":show_id"], "variable": [{ "key": "show_id", "value": "" }] },
+            "description": "Returns a single show."
+          }
+        },
+        {
+          "name": "Update a show",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [] },
+            "url": { "raw": "{{baseUrl}}/shows/:show_id", "host": ["{{baseUrl}}"], "path": ["shows", ":show_id"], "variable": [{ "key": "show_id", "value": "" }] },
+            "description": "Updates an existing show."
+          }
+        },
+        {
+          "name": "Delete a show",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/:show_id", "host": ["{{baseUrl}}"], "path": ["shows", ":show_id"], "variable": [{ "key": "show_id", "value": "" }] },
+            "description": "Deletes a show."
+          }
+        },
+        {
+          "name": "Retrieve a user's shows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/shows", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "shows"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Returns a paginated list of the user's shows."
+          }
+        },
+        {
+          "name": "List show categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/show-categories", "host": ["{{baseUrl}}"], "path": ["show-categories"] },
+            "description": "Returns the list of show categories."
+          }
+        },
+        {
+          "name": "List show languages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/show-languages", "host": ["{{baseUrl}}"], "path": ["show-languages"] },
+            "description": "Returns the list of supported languages."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Episodes",
+      "item": [
+        {
+          "name": "Upload an episode",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": { "mode": "formdata", "formdata": [{ "key": "title", "value": "", "type": "text" }, { "key": "media_file", "type": "file", "src": [] }] },
+            "url": { "raw": "{{baseUrl}}/shows/:show_id/episodes", "host": ["{{baseUrl}}"], "path": ["shows", ":show_id", "episodes"], "variable": [{ "key": "show_id", "value": "" }] },
+            "description": "Uploads a new episode (multipart/form-data with the audio file) to a show."
+          }
+        },
+        {
+          "name": "Retrieve a show's episodes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/:show_id/episodes", "host": ["{{baseUrl}}"], "path": ["shows", ":show_id", "episodes"], "variable": [{ "key": "show_id", "value": "" }] },
+            "description": "Returns a paginated list of a show's episodes."
+          }
+        },
+        {
+          "name": "Retrieve an episode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Returns a single episode."
+          }
+        },
+        {
+          "name": "Update an episode",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [] },
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Updates an existing episode."
+          }
+        },
+        {
+          "name": "Delete an episode",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Deletes an episode."
+          }
+        },
+        {
+          "name": "Stream an episode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id/play", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id", "play"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Returns the audio stream for an episode over HTTPS."
+          }
+        },
+        {
+          "name": "Download an episode",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id/download", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id", "download"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Downloads the episode audio file."
+          }
+        },
+        {
+          "name": "Retrieve episode messages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id/messages", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id", "messages"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Returns a paginated list of listener messages on an episode."
+          }
+        },
+        {
+          "name": "Retrieve episode chapters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id/chapters", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id", "chapters"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Returns the chapters for an episode."
+          }
+        },
+        {
+          "name": "Retrieve episode cuepoints",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id/cuepoints", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id", "cuepoints"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Returns the ad cuepoints for an episode."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Statistics",
+      "item": [
+        {
+          "name": "Retrieve overall user statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/statistics", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "statistics"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Returns aggregated statistics for a user."
+          }
+        },
+        {
+          "name": "Retrieve user play statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:user_id/statistics/plays", "host": ["{{baseUrl}}"], "path": ["users", ":user_id", "statistics", "plays"], "variable": [{ "key": "user_id", "value": "" }] },
+            "description": "Returns play statistics for a user."
+          }
+        },
+        {
+          "name": "Retrieve show play statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/shows/:show_id/statistics/plays", "host": ["{{baseUrl}}"], "path": ["shows", ":show_id", "statistics", "plays"], "variable": [{ "key": "show_id", "value": "" }] },
+            "description": "Returns play statistics for a show."
+          }
+        },
+        {
+          "name": "Retrieve episode play statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/episodes/:episode_id/statistics/plays", "host": ["{{baseUrl}}"], "path": ["episodes", ":episode_id", "statistics", "plays"], "variable": [{ "key": "episode_id", "value": "" }] },
+            "description": "Returns play statistics for an episode."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search and Discovery",
+      "item": [
+        {
+          "name": "Search shows or episodes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/search?q=&type=shows", "host": ["{{baseUrl}}"], "path": ["search"], "query": [{ "key": "q", "value": "" }, { "key": "type", "value": "shows" }] },
+            "description": "Searches shows or episodes. type is shows or episodes."
+          }
+        },
+        {
+          "name": "Retrieve explore category items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/explore/categories/:category_id/items", "host": ["{{baseUrl}}"], "path": ["explore", "categories", ":category_id", "items"], "variable": [{ "key": "category_id", "value": "" }] },
+            "description": "Returns the items in an explore category."
+          }
+        },
+        {
+          "name": "Retrieve latest episodes by tag",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/tags/:tag_name/episodes", "host": ["{{baseUrl}}"], "path": ["tags", ":tag_name", "episodes"], "variable": [{ "key": "tag_name", "value": "" }] },
+            "description": "Returns the latest episodes tagged with a given tag."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Advertising",
+      "item": [
+        {
+          "name": "Retrieve advertisers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/advertisers", "host": ["{{baseUrl}}"], "path": ["advertisers"] },
+            "description": "Returns the list of advertisers."
+          }
+        },
+        {
+          "name": "Create an advertiser",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [] },
+            "url": { "raw": "{{baseUrl}}/advertisers", "host": ["{{baseUrl}}"], "path": ["advertisers"] },
+            "description": "Creates a new advertiser."
+          }
+        },
+        {
+          "name": "Retrieve campaigns",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/campaigns", "host": ["{{baseUrl}}"], "path": ["campaigns"] },
+            "description": "Returns the list of campaigns."
+          }
+        },
+        {
+          "name": "Create a campaign",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [] },
+            "url": { "raw": "{{baseUrl}}/campaigns", "host": ["{{baseUrl}}"], "path": ["campaigns"] },
+            "description": "Creates a new campaign."
+          }
+        },
+        {
+          "name": "Retrieve line items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/lineitems", "host": ["{{baseUrl}}"], "path": ["lineitems"] },
+            "description": "Returns the list of line items."
+          }
+        },
+        {
+          "name": "Create a line item",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": { "mode": "urlencoded", "urlencoded": [] },
+            "url": { "raw": "{{baseUrl}}/lineitems", "host": ["{{baseUrl}}"], "path": ["lineitems"] },
+            "description": "Creates a new line item."
+          }
+        }
+      ]
+    }
+  ]
+}

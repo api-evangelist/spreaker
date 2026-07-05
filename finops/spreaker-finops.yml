@@ -1,0 +1,94 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Spreaker
+providerId: spreaker
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Podcasting
+- Podcast Hosting
+- Monetization
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Spreaker spend. Spreaker (owned by iHeartMedia) bills podcast
+  hosting on flat monthly subscription tiers - Free Speech (0 USD), Broadcaster
+  (20 USD), Anchorman (50 USD), and Publisher (250 USD) - rather than on API
+  call volume or metered usage. The API itself is included with the account, so
+  the primary cost driver is the subscription tier and the features it unlocks
+  (statistics retention, private podcasts, collaborators, and the direct ad
+  campaign manager). Spreaker is also a revenue source, not only a cost: creators
+  earn from programmatic ads, listener subscriptions, and the Supporters Club,
+  where the Supporters Club fee drops from 20 percent on the free tier to 0
+  percent on paid tiers.
+notes: >-
+  Because billing is flat-rate per tier, cost is predictable and does not scale
+  with API traffic. Optimize by matching the tier to the features actually used
+  and by factoring in monetization revenue that offsets the subscription. Verify
+  current tier prices on https://www.spreaker.com/plans.
+sources:
+- https://www.spreaker.com/plans
+- https://developers.spreaker.com/guides/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Spreaker
+serviceCategory: Media and Podcasting
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Credit
+focusColumns:
+  ServiceName: Spreaker Podcast Hosting
+  ServiceCategory: Media and Podcasting
+  ProviderName: Spreaker
+  PublisherName: Spreaker
+  InvoiceIssuerName: Spreaker
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription
+meters:
+- name: subscription_tier
+  description: Flat monthly subscription fee for the account's plan (Free Speech, Broadcaster, Anchorman, or Publisher).
+  unit: months
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: ad_revenue
+  description: Revenue earned by the creator from programmatic ad monetization (a credit against cost, not a charge).
+  unit: currency
+  aggregation: sum
+  dimensions:
+  - account
+  - show
+- name: subscription_revenue
+  description: Revenue from listener subscriptions and the Supporters Club, net of the tier's Supporters Club fee.
+  unit: currency
+  aggregation: sum
+  dimensions:
+  - account
+  - show
+principles:
+- name: Visibility
+  description: Track the flat monthly subscription cost per account and attribute it to the podcasts and teams using the account.
+- name: Allocation
+  description: Map each show and its collaborators to a cost center so the single account fee is allocated across workloads.
+- name: Optimization
+  description: Right-size the tier to the features actually used (stats retention, private podcasts, collaborators, ad campaign manager) and weigh subscription cost against ad and subscription revenue earned on the platform.
+- name: Accountability
+  description: Review the tier monthly against feature usage and monetization; downgrade or upgrade as podcast volume and ad-sales needs change.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

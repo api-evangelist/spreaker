@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Spreaker
+providerId: spreaker
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Podcasting
+- Podcast Hosting
+- Rate Limiting
+- Quotas
+description: >-
+  The Spreaker API enforces rate limiting but does not publish exact numeric
+  request-per-minute thresholds. The developer overview states that excessive
+  requests result in temporary IP blacklisting and a 429 Too Many Requests
+  response. Read (GET) requests are generally public and do not require
+  authentication unless documented; all writes (PUT, POST, DELETE) require an
+  OAuth2 Bearer token. List endpoints are paginated - the default page size is
+  50 items, adjustable up to 100 via the limit parameter, with a next_url
+  property linking to the following page.
+notes: >-
+  Spreaker does not document a specific requests-per-second or per-hour ceiling.
+  Clients should back off on 429 responses and avoid tight polling loops. Verify
+  any current numeric limits with Spreaker developer support during
+  reconciliation.
+sources:
+- https://developers.spreaker.com/guides/overview/
+- https://developers.spreaker.com/guides/authentication/
+- https://developers.spreaker.com/api/
+responseCodes:
+  throttled: 429
+limits:
+- name: API Requests
+  scope: ip
+  metric: requests
+  limit: not published
+  notes: Excessive requests trigger temporary IP blacklisting and a 429 Too Many Requests response. No numeric threshold is documented.
+- name: Pagination Page Size
+  scope: request
+  metric: items
+  limit: 100
+  notes: Default page size is 50 items, adjustable up to 100 via the limit parameter. Responses include a next_url for the next page.
+- name: Authenticated Writes
+  scope: account
+  metric: requests
+  limit: not published
+  notes: All PUT, POST, and DELETE requests require a valid OAuth2 Bearer token. No separate numeric write cap is documented.
+policies:
+- name: IP Blacklisting
+  description: Spreaker temporarily blacklists client IPs that issue excessive requests, returning 429 until the block clears.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter on 429 responses and avoid tight polling of statistics and search endpoints.
+- name: Pagination
+  description: Iterate large result sets by following the next_url property rather than requesting oversized pages.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

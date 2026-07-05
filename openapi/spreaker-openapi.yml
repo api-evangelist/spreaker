@@ -1,0 +1,753 @@
+openapi: 3.0.3
+info:
+  title: Spreaker API
+  description: >-
+    The Spreaker API (v2) is a REST API for the Spreaker podcast hosting,
+    distribution, and monetization platform, owned by iHeartMedia. It lets
+    developers manage users and their social graph, podcast shows, episodes
+    (including uploads, playback, messages, chapters, and ad cuepoints),
+    analytics and statistics, search and discovery, and the advertising
+    campaign stack. All access is over HTTPS at api.spreaker.com. GET requests
+    are public unless otherwise noted; all PUT, POST, and DELETE requests must
+    be authenticated with an OAuth2 Bearer token. Responses are paginated with a
+    default of 50 items per page (up to 100 via the limit parameter) and a
+    next_url property for the following page.
+  version: '2.0'
+  contact:
+    name: Spreaker for Developers
+    url: https://developers.spreaker.com
+  license:
+    name: Proprietary
+    url: https://www.spreaker.com/terms-of-service
+servers:
+  - url: https://api.spreaker.com/v2
+    description: Spreaker API v2
+security:
+  - oauth2: []
+tags:
+  - name: Users
+    description: User profiles and social graph (followers, followings, blocks).
+  - name: Shows
+    description: Podcast shows, favorites, and reference data.
+  - name: Episodes
+    description: Episodes, uploads, playback, likes, bookmarks, messages, chapters, cuepoints.
+  - name: Statistics
+    description: Playback and engagement analytics at user, show, and episode level.
+  - name: Search and Discovery
+    description: Search, explore categories, tags, and oEmbed.
+  - name: Advertising
+    description: Advertisers, campaigns, and line items for direct ad sales.
+paths:
+  /me:
+    get:
+      operationId: getAuthenticatedUser
+      tags: [Users]
+      summary: Retrieve the authenticated user
+      description: Returns the user associated with the OAuth2 access token.
+      responses:
+        '200':
+          description: The authenticated user.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: getUser
+      tags: [Users]
+      summary: Retrieve a user
+      description: Returns a single user's public profile.
+      responses:
+        '200':
+          description: A user.
+    post:
+      operationId: updateUser
+      tags: [Users]
+      summary: Update a user
+      description: Updates the profile of the authenticated user.
+      responses:
+        '200':
+          description: The updated user.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/followers:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listFollowers
+      tags: [Users]
+      summary: Retrieve a user's followers
+      responses:
+        '200':
+          description: A paginated list of followers.
+  /users/{user_id}/followings:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listFollowings
+      tags: [Users]
+      summary: Retrieve who a user follows
+      responses:
+        '200':
+          description: A paginated list of followed users.
+  /users/{user_id}/followings/{following_id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - name: following_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The ID of the user to follow or unfollow.
+    put:
+      operationId: followUser
+      tags: [Users]
+      summary: Follow a user
+      responses:
+        '200':
+          description: The follow relationship was created.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: unfollowUser
+      tags: [Users]
+      summary: Unfollow a user
+      responses:
+        '200':
+          description: The follow relationship was removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/blocks:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listBlockedUsers
+      tags: [Users]
+      summary: Retrieve blocked users
+      responses:
+        '200':
+          description: A paginated list of blocked users.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /shows:
+    post:
+      operationId: createShow
+      tags: [Shows]
+      summary: Create a show
+      description: Creates a new podcast show for the authenticated user.
+      responses:
+        '200':
+          description: The created show.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /shows/{show_id}:
+    parameters:
+      - $ref: '#/components/parameters/ShowId'
+    get:
+      operationId: getShow
+      tags: [Shows]
+      summary: Retrieve a show
+      responses:
+        '200':
+          description: A show.
+    post:
+      operationId: updateShow
+      tags: [Shows]
+      summary: Update a show
+      responses:
+        '200':
+          description: The updated show.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteShow
+      tags: [Shows]
+      summary: Delete a show
+      responses:
+        '200':
+          description: The show was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/shows:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listUserShows
+      tags: [Shows]
+      summary: Retrieve a user's shows
+      responses:
+        '200':
+          description: A paginated list of the user's shows.
+  /users/{user_id}/favorites:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listFavorites
+      tags: [Shows]
+      summary: Retrieve a user's favorite shows
+      responses:
+        '200':
+          description: A paginated list of favorite shows.
+  /users/{user_id}/favorites/{show_id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/ShowId'
+    put:
+      operationId: addFavorite
+      tags: [Shows]
+      summary: Add a show to favorites
+      responses:
+        '200':
+          description: The show was favorited.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: removeFavorite
+      tags: [Shows]
+      summary: Remove a show from favorites
+      responses:
+        '200':
+          description: The show was unfavorited.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /show-categories:
+    get:
+      operationId: listShowCategories
+      tags: [Shows]
+      summary: List show categories
+      responses:
+        '200':
+          description: The list of show categories.
+  /show-languages:
+    get:
+      operationId: listShowLanguages
+      tags: [Shows]
+      summary: List show languages
+      responses:
+        '200':
+          description: The list of supported languages.
+  /shows/{show_id}/episodes:
+    parameters:
+      - $ref: '#/components/parameters/ShowId'
+    get:
+      operationId: listShowEpisodes
+      tags: [Episodes]
+      summary: Retrieve a show's episodes
+      responses:
+        '200':
+          description: A paginated list of episodes.
+    post:
+      operationId: uploadEpisode
+      tags: [Episodes]
+      summary: Upload an episode
+      description: >-
+        Uploads a new episode (multipart/form-data with the audio file) to a
+        show.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                media_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: The created episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/drafts:
+    post:
+      operationId: createDraftEpisode
+      tags: [Episodes]
+      summary: Create a draft episode
+      responses:
+        '200':
+          description: The created draft episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: getEpisode
+      tags: [Episodes]
+      summary: Retrieve an episode
+      responses:
+        '200':
+          description: An episode.
+    post:
+      operationId: updateEpisode
+      tags: [Episodes]
+      summary: Update an episode
+      responses:
+        '200':
+          description: The updated episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteEpisode
+      tags: [Episodes]
+      summary: Delete an episode
+      responses:
+        '200':
+          description: The episode was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/play:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: playEpisode
+      tags: [Episodes]
+      summary: Stream an episode
+      description: Returns the audio stream for an episode over HTTPS.
+      responses:
+        '200':
+          description: The episode audio stream.
+  /episodes/{episode_id}/download:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: downloadEpisode
+      tags: [Episodes]
+      summary: Download an episode
+      responses:
+        '200':
+          description: The episode audio file.
+  /users/{user_id}/episodes:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listUserEpisodes
+      tags: [Episodes]
+      summary: Retrieve a user's episodes
+      responses:
+        '200':
+          description: A paginated list of episodes.
+  /users/{user_id}/likes/{episode_id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: checkLike
+      tags: [Episodes]
+      summary: Check if an episode is liked
+      responses:
+        '200':
+          description: Whether the user liked the episode.
+    put:
+      operationId: addLike
+      tags: [Episodes]
+      summary: Like an episode
+      responses:
+        '200':
+          description: The like was added.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: removeLike
+      tags: [Episodes]
+      summary: Unlike an episode
+      responses:
+        '200':
+          description: The like was removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/bookmarks/{episode_id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/EpisodeId'
+    put:
+      operationId: addBookmark
+      tags: [Episodes]
+      summary: Bookmark an episode
+      responses:
+        '200':
+          description: The bookmark was added.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: removeBookmark
+      tags: [Episodes]
+      summary: Remove a bookmark
+      responses:
+        '200':
+          description: The bookmark was removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/messages:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: listEpisodeMessages
+      tags: [Episodes]
+      summary: Retrieve episode messages
+      responses:
+        '200':
+          description: A paginated list of messages.
+    post:
+      operationId: createEpisodeMessage
+      tags: [Episodes]
+      summary: Leave a message on an episode
+      responses:
+        '200':
+          description: The created message.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/chapters:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: listEpisodeChapters
+      tags: [Episodes]
+      summary: Retrieve episode chapters
+      responses:
+        '200':
+          description: The episode chapters.
+    post:
+      operationId: addEpisodeChapter
+      tags: [Episodes]
+      summary: Add an episode chapter
+      responses:
+        '200':
+          description: The created chapter.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/cuepoints:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: listEpisodeCuepoints
+      tags: [Episodes]
+      summary: Retrieve episode ad cuepoints
+      responses:
+        '200':
+          description: The episode cuepoints.
+    post:
+      operationId: updateEpisodeCuepoints
+      tags: [Episodes]
+      summary: Update episode ad cuepoints
+      responses:
+        '200':
+          description: The updated cuepoints.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/statistics:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: getUserStatistics
+      tags: [Statistics]
+      summary: Retrieve overall user statistics
+      responses:
+        '200':
+          description: Aggregated statistics for the user.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/statistics/plays:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: getUserPlayStatistics
+      tags: [Statistics]
+      summary: Retrieve user play statistics
+      responses:
+        '200':
+          description: Play statistics for the user.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/statistics/geographics:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: getUserGeographicStatistics
+      tags: [Statistics]
+      summary: Retrieve user geographic statistics
+      responses:
+        '200':
+          description: Geographic distribution of plays.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /shows/{show_id}/statistics/plays:
+    parameters:
+      - $ref: '#/components/parameters/ShowId'
+    get:
+      operationId: getShowPlayStatistics
+      tags: [Statistics]
+      summary: Retrieve show play statistics
+      responses:
+        '200':
+          description: Play statistics for the show.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/statistics/plays:
+    parameters:
+      - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: getEpisodePlayStatistics
+      tags: [Statistics]
+      summary: Retrieve episode play statistics
+      responses:
+        '200':
+          description: Play statistics for the episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /search:
+    get:
+      operationId: search
+      tags: [Search and Discovery]
+      summary: Search shows or episodes
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The search query.
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [shows, episodes]
+          description: Whether to search shows or episodes.
+      responses:
+        '200':
+          description: A paginated list of matching results.
+  /explore/categories/{category_id}/items:
+    parameters:
+      - name: category_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The explore category ID.
+    get:
+      operationId: getExploreCategoryItems
+      tags: [Search and Discovery]
+      summary: Retrieve explore category items
+      responses:
+        '200':
+          description: The items in the explore category.
+  /tags/{tag_name}/episodes:
+    parameters:
+      - name: tag_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The tag name.
+    get:
+      operationId: getEpisodesByTag
+      tags: [Search and Discovery]
+      summary: Retrieve latest episodes by tag
+      responses:
+        '200':
+          description: A paginated list of episodes tagged with the given tag.
+  /advertisers:
+    get:
+      operationId: listAdvertisers
+      tags: [Advertising]
+      summary: Retrieve advertisers
+      responses:
+        '200':
+          description: A list of advertisers.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createAdvertiser
+      tags: [Advertising]
+      summary: Create an advertiser
+      responses:
+        '200':
+          description: The created advertiser.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /advertisers/{advertiser_id}:
+    parameters:
+      - name: advertiser_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The advertiser ID.
+    get:
+      operationId: getAdvertiser
+      tags: [Advertising]
+      summary: Retrieve an advertiser
+      responses:
+        '200':
+          description: An advertiser.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateAdvertiser
+      tags: [Advertising]
+      summary: Update an advertiser
+      responses:
+        '200':
+          description: The updated advertiser.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteAdvertiser
+      tags: [Advertising]
+      summary: Delete an advertiser
+      responses:
+        '200':
+          description: The advertiser was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /campaigns:
+    get:
+      operationId: listCampaigns
+      tags: [Advertising]
+      summary: Retrieve campaigns
+      responses:
+        '200':
+          description: A list of campaigns.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCampaign
+      tags: [Advertising]
+      summary: Create a campaign
+      responses:
+        '200':
+          description: The created campaign.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /campaigns/{campaign_id}:
+    parameters:
+      - name: campaign_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The campaign ID.
+    get:
+      operationId: getCampaign
+      tags: [Advertising]
+      summary: Retrieve a campaign
+      responses:
+        '200':
+          description: A campaign.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateCampaign
+      tags: [Advertising]
+      summary: Update a campaign
+      responses:
+        '200':
+          description: The updated campaign.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteCampaign
+      tags: [Advertising]
+      summary: Delete a campaign
+      responses:
+        '200':
+          description: The campaign was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /lineitems:
+    get:
+      operationId: listLineItems
+      tags: [Advertising]
+      summary: Retrieve line items
+      responses:
+        '200':
+          description: A list of line items.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createLineItem
+      tags: [Advertising]
+      summary: Create a line item
+      responses:
+        '200':
+          description: The created line item.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /lineitems/{lineitem_id}:
+    parameters:
+      - name: lineitem_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The line item ID.
+    get:
+      operationId: getLineItem
+      tags: [Advertising]
+      summary: Retrieve a line item
+      responses:
+        '200':
+          description: A line item.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: updateLineItem
+      tags: [Advertising]
+      summary: Update a line item
+      responses:
+        '200':
+          description: The updated line item.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteLineItem
+      tags: [Advertising]
+      summary: Delete a line item
+      responses:
+        '200':
+          description: The line item was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: >-
+        OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and
+        exchange or refresh tokens at https://api.spreaker.com/oauth2/token.
+        Access tokens are sent as a Bearer token in the Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.spreaker.com/oauth2/authorize
+          tokenUrl: https://api.spreaker.com/oauth2/token
+          refreshUrl: https://api.spreaker.com/oauth2/token
+          scopes:
+            basic: Basic access to the Spreaker API on behalf of the user.
+  parameters:
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The user ID.
+    ShowId:
+      name: show_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The show ID.
+    EpisodeId:
+      name: episode_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The episode ID.
+  responses:
+    Unauthorized:
+      description: The request was not authenticated with a valid OAuth2 token.

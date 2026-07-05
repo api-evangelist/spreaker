@@ -1,0 +1,134 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Spreaker
+providerId: spreaker
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Podcasting
+- Podcast Hosting
+- Monetization
+- Plans
+description: >-
+  Spreaker sells podcast hosting on four published, flat-rate monthly tiers -
+  Free Speech (0 USD), Broadcaster (20 USD), Anchorman (50 USD), and Publisher
+  (250 USD). All tiers include unlimited episodes, auto-distribution to Apple
+  Podcasts, Spotify, and iHeartRadio, and monetization via programmatic ads;
+  higher tiers add subscriptions, a 0 percent Supporters Club fee, longer stats
+  retention, unlimited collaborators, and a direct ad campaign manager. The
+  Spreaker API itself is not separately priced - API access is included with an
+  account, and API capabilities such as private podcasts, advanced statistics,
+  and the advertising campaign endpoints track the feature set of the plan the
+  account is on.
+notes: >-
+  Prices are the published monthly USD rates as of the review date; annual
+  billing may be discounted. Verify current tiers and inclusions on
+  https://www.spreaker.com/plans during reconciliation. Spreaker is owned by
+  iHeartMedia.
+sources:
+- https://www.spreaker.com/plans
+- https://help.spreaker.com/en/articles/3823276-an-overview-of-our-pro-plans
+- https://developers.spreaker.com/guides/
+plans:
+- id: spreaker-free-speech
+  name: Free Speech
+  type: free
+  description: >-
+    Free tier with one podcast, unlimited episodes, basic statistics (6 months
+    retention), and automatic ad monetization. Supporters Club carries a 20
+    percent fee.
+  entries:
+  - label: Monthly Subscription
+    name: free_speech_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.00 USD
+    userMultiplied: false
+  elements:
+  - name: One Podcast
+  - name: Unlimited Episodes
+  - name: Statistics 6 Months
+  - name: Ad Monetization
+  - name: Auto-Distribution
+- id: spreaker-broadcaster
+  name: Broadcaster
+  type: paid
+  description: >-
+    Most popular tier. Unlimited podcasts and episodes, 12 months of statistics,
+    monetization via ads and subscriptions, a 0 percent Supporters Club fee,
+    enhanced private podcasts, and Apple Podcasts subscriptions support.
+  entries:
+  - label: Monthly Subscription
+    name: broadcaster_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 20.00 USD
+    userMultiplied: false
+  elements:
+  - name: Unlimited Podcasts
+  - name: Statistics 12 Months
+  - name: Ads and Subscriptions
+  - name: Supporters Club 0 Percent Fee
+  - name: Private Podcasts
+  - name: Apple Podcasts Subscriptions
+- id: spreaker-anchorman
+  name: Anchorman
+  type: paid
+  description: >-
+    Adds unlimited collaborators and a customizable embedded player (player
+    colors) on top of the Broadcaster feature set, with full statistics
+    including listener geolocation.
+  entries:
+  - label: Monthly Subscription
+    name: anchorman_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 50.00 USD
+    userMultiplied: false
+  elements:
+  - name: Unlimited Podcasts
+  - name: Unlimited Collaborators
+  - name: Full Statistics with Geolocation
+  - name: Customizable Player
+  - name: Ads and Subscriptions
+- id: spreaker-publisher
+  name: Publisher
+  type: paid
+  description: >-
+    Enterprise tier for podcast networks and businesses. Adds an Ad Campaign
+    Manager for direct advertiser relationships (the advertisers, campaigns, and
+    line-item API endpoints), 24 months of statistics, and priority support.
+  entries:
+  - label: Monthly Subscription
+    name: publisher_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 250.00 USD
+    userMultiplied: false
+  elements:
+  - name: Unlimited Podcasts
+  - name: Unlimited Collaborators
+  - name: Statistics 24 Months
+  - name: Ad Campaign Manager
+  - name: Priority Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

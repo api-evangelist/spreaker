@@ -1,0 +1,402 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{accessToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Users", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve the authenticated user.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.spreaker.com/v2/me" },
+          "docs": "Returns the user associated with the OAuth2 access token."
+        },
+        {
+          "info": { "name": "Retrieve a user.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Returns a single user's public profile."
+        },
+        {
+          "info": { "name": "Update a user.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/users/:user_id",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Updates the profile of the authenticated user."
+        },
+        {
+          "info": { "name": "Retrieve a user's followers.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followers",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Returns a paginated list of the user's followers."
+        },
+        {
+          "info": { "name": "Follow a user.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followings/:following_id",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The following user's ID." },
+              { "name": "following_id", "value": "", "type": "path", "description": "The ID of the user to follow." }
+            ]
+          },
+          "docs": "Follows another user."
+        },
+        {
+          "info": { "name": "Unfollow a user.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followings/:following_id",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The following user's ID." },
+              { "name": "following_id", "value": "", "type": "path", "description": "The ID of the user to unfollow." }
+            ]
+          },
+          "docs": "Unfollows a user."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Shows", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create a show.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/shows",
+            "body": { "type": "form", "data": "title=" }
+          },
+          "docs": "Creates a new podcast show for the authenticated user."
+        },
+        {
+          "info": { "name": "Retrieve a show.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/shows/:show_id",
+            "params": [
+              { "name": "show_id", "value": "", "type": "path", "description": "The show ID." }
+            ]
+          },
+          "docs": "Returns a single show."
+        },
+        {
+          "info": { "name": "Update a show.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/shows/:show_id",
+            "params": [
+              { "name": "show_id", "value": "", "type": "path", "description": "The show ID." }
+            ]
+          },
+          "docs": "Updates an existing show."
+        },
+        {
+          "info": { "name": "Delete a show.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/shows/:show_id",
+            "params": [
+              { "name": "show_id", "value": "", "type": "path", "description": "The show ID." }
+            ]
+          },
+          "docs": "Deletes a show."
+        },
+        {
+          "info": { "name": "Retrieve a user's shows.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/shows",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Returns a paginated list of the user's shows."
+        },
+        {
+          "info": { "name": "List show categories.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.spreaker.com/v2/show-categories" },
+          "docs": "Returns the list of show categories."
+        },
+        {
+          "info": { "name": "List show languages.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.spreaker.com/v2/show-languages" },
+          "docs": "Returns the list of supported languages."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Episodes", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Upload an episode.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/shows/:show_id/episodes",
+            "params": [
+              { "name": "show_id", "value": "", "type": "path", "description": "The show ID." }
+            ],
+            "body": { "type": "multipart", "data": "" }
+          },
+          "docs": "Uploads a new episode (multipart/form-data with the audio file) to a show."
+        },
+        {
+          "info": { "name": "Retrieve a show's episodes.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/shows/:show_id/episodes",
+            "params": [
+              { "name": "show_id", "value": "", "type": "path", "description": "The show ID." }
+            ]
+          },
+          "docs": "Returns a paginated list of a show's episodes."
+        },
+        {
+          "info": { "name": "Retrieve an episode.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Returns a single episode."
+        },
+        {
+          "info": { "name": "Update an episode.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Updates an existing episode."
+        },
+        {
+          "info": { "name": "Delete an episode.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Deletes an episode."
+        },
+        {
+          "info": { "name": "Stream an episode.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/play",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Returns the audio stream for an episode over HTTPS."
+        },
+        {
+          "info": { "name": "Download an episode.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/download",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Downloads the episode audio file."
+        },
+        {
+          "info": { "name": "Retrieve episode messages.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/messages",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Returns a paginated list of listener messages on an episode."
+        },
+        {
+          "info": { "name": "Retrieve episode chapters.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/chapters",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Returns the chapters for an episode."
+        },
+        {
+          "info": { "name": "Retrieve episode cuepoints.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/cuepoints",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Returns the ad cuepoints for an episode."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Statistics", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve overall user statistics.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/statistics",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Returns aggregated statistics for a user."
+        },
+        {
+          "info": { "name": "Retrieve user play statistics.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/statistics/plays",
+            "params": [
+              { "name": "user_id", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Returns play statistics for a user."
+        },
+        {
+          "info": { "name": "Retrieve show play statistics.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/shows/:show_id/statistics/plays",
+            "params": [
+              { "name": "show_id", "value": "", "type": "path", "description": "The show ID." }
+            ]
+          },
+          "docs": "Returns play statistics for a show."
+        },
+        {
+          "info": { "name": "Retrieve episode play statistics.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/statistics/plays",
+            "params": [
+              { "name": "episode_id", "value": "", "type": "path", "description": "The episode ID." }
+            ]
+          },
+          "docs": "Returns play statistics for an episode."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Search and Discovery", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Search shows or episodes.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/search?type=shows",
+            "params": [
+              { "name": "q", "value": "", "type": "query", "description": "The search query." },
+              { "name": "type", "value": "shows", "type": "query", "description": "Whether to search shows or episodes." }
+            ]
+          },
+          "docs": "Searches shows or episodes."
+        },
+        {
+          "info": { "name": "Retrieve explore category items.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/explore/categories/:category_id/items",
+            "params": [
+              { "name": "category_id", "value": "", "type": "path", "description": "The explore category ID." }
+            ]
+          },
+          "docs": "Returns the items in an explore category."
+        },
+        {
+          "info": { "name": "Retrieve latest episodes by tag.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/tags/:tag_name/episodes",
+            "params": [
+              { "name": "tag_name", "value": "", "type": "path", "description": "The tag name." }
+            ]
+          },
+          "docs": "Returns the latest episodes tagged with a given tag."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Advertising", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve advertisers.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.spreaker.com/v2/advertisers" },
+          "docs": "Returns the list of advertisers."
+        },
+        {
+          "info": { "name": "Create an advertiser.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/advertisers",
+            "body": { "type": "form", "data": "" }
+          },
+          "docs": "Creates a new advertiser."
+        },
+        {
+          "info": { "name": "Retrieve campaigns.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.spreaker.com/v2/campaigns" },
+          "docs": "Returns the list of campaigns."
+        },
+        {
+          "info": { "name": "Create a campaign.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/campaigns",
+            "body": { "type": "form", "data": "" }
+          },
+          "docs": "Creates a new campaign."
+        },
+        {
+          "info": { "name": "Retrieve line items.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.spreaker.com/v2/lineitems" },
+          "docs": "Returns the list of line items."
+        },
+        {
+          "info": { "name": "Create a line item.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/lineitems",
+            "body": { "type": "form", "data": "" }
+          },
+          "docs": "Creates a new line item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
