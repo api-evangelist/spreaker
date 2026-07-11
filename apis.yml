@@ -161,6 +161,10 @@ apis:
     advertisers, campaigns, and targeted line items - including country targeting
     for campaign delivery.
 common:
+- type: VulnerabilityDisclosure
+  url: security/spreaker-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/spreaker-domain-security.yml
 - type: Authentication
   url: authentication/spreaker-authentication.yml
 - type: OAuthScopes

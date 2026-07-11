@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/spreaker-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.spreaker.com/oauth2/authorize
+    tokenUrl: https://api.spreaker.com/oauth2/token
+    scopes: 1
+  description: OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and exchange or
+    refresh tokens at https://api.spreaker.com/oauth2/token. Access tokens are sent as a Bearer
+    token in the Authorization header.
+  sources:
+  - openapi/spreaker-openapi.yml
