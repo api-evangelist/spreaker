@@ -161,6 +161,10 @@ apis:
     advertisers, campaigns, and targeted line items - including country targeting
     for campaign delivery.
 common:
+- type: Authentication
+  url: authentication/spreaker-authentication.yml
+- type: OAuthScopes
+  url: scopes/spreaker-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/spreaker
 - type: Website
