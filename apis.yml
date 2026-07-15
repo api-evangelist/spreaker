@@ -161,6 +161,8 @@ apis:
     advertisers, campaigns, and targeted line items - including country targeting
     for campaign delivery.
 common:
+- type: AgenticAccess
+  url: agentic-access/spreaker-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/spreaker-vulnerability-disclosure.yml
 - type: DomainSecurity
