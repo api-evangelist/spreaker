@@ -1,0 +1,157 @@
+openapi: 3.0.3
+info:
+  title: Spreaker Advertising Shows API
+  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. It lets developers manage users and their social graph, podcast shows, episodes (including uploads, playback, messages, chapters, and ad cuepoints), analytics and statistics, search and discovery, and the advertising campaign stack. All access is over HTTPS at api.spreaker.com. GET requests are public unless otherwise noted; all PUT, POST, and DELETE requests must be authenticated with an OAuth2 Bearer token. Responses are paginated with a default of 50 items per page (up to 100 via the limit parameter) and a next_url property for the following page.
+  version: '2.0'
+  contact:
+    name: Spreaker for Developers
+    url: https://developers.spreaker.com
+  license:
+    name: Proprietary
+    url: https://www.spreaker.com/terms-of-service
+servers:
+- url: https://api.spreaker.com/v2
+  description: Spreaker API v2
+security:
+- oauth2: []
+tags:
+- name: Shows
+  description: Podcast shows, favorites, and reference data.
+paths:
+  /shows:
+    post:
+      operationId: createShow
+      tags:
+      - Shows
+      summary: Create a show
+      description: Creates a new podcast show for the authenticated user.
+      responses:
+        '200':
+          description: The created show.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /shows/{show_id}:
+    parameters:
+    - $ref: '#/components/parameters/ShowId'
+    get:
+      operationId: getShow
+      tags:
+      - Shows
+      summary: Retrieve a show
+      responses:
+        '200':
+          description: A show.
+    post:
+      operationId: updateShow
+      tags:
+      - Shows
+      summary: Update a show
+      responses:
+        '200':
+          description: The updated show.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteShow
+      tags:
+      - Shows
+      summary: Delete a show
+      responses:
+        '200':
+          description: The show was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/shows:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listUserShows
+      tags:
+      - Shows
+      summary: Retrieve a user's shows
+      responses:
+        '200':
+          description: A paginated list of the user's shows.
+  /users/{user_id}/favorites:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listFavorites
+      tags:
+      - Shows
+      summary: Retrieve a user's favorite shows
+      responses:
+        '200':
+          description: A paginated list of favorite shows.
+  /users/{user_id}/favorites/{show_id}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - $ref: '#/components/parameters/ShowId'
+    put:
+      operationId: addFavorite
+      tags:
+      - Shows
+      summary: Add a show to favorites
+      responses:
+        '200':
+          description: The show was favorited.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: removeFavorite
+      tags:
+      - Shows
+      summary: Remove a show from favorites
+      responses:
+        '200':
+          description: The show was unfavorited.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /show-categories:
+    get:
+      operationId: listShowCategories
+      tags:
+      - Shows
+      summary: List show categories
+      responses:
+        '200':
+          description: The list of show categories.
+  /show-languages:
+    get:
+      operationId: listShowLanguages
+      tags:
+      - Shows
+      summary: List show languages
+      responses:
+        '200':
+          description: The list of supported languages.
+components:
+  parameters:
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The user ID.
+    ShowId:
+      name: show_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The show ID.
+  responses:
+    Unauthorized:
+      description: The request was not authenticated with a valid OAuth2 token.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and exchange or refresh tokens at https://api.spreaker.com/oauth2/token. Access tokens are sent as a Bearer token in the Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.spreaker.com/oauth2/authorize
+          tokenUrl: https://api.spreaker.com/oauth2/token
+          refreshUrl: https://api.spreaker.com/oauth2/token
+          scopes:
+            basic: Basic access to the Spreaker API on behalf of the user.

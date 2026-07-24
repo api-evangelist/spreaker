@@ -1,0 +1,212 @@
+openapi: 3.0.3
+info:
+  title: Spreaker Advertising API
+  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. It lets developers manage users and their social graph, podcast shows, episodes (including uploads, playback, messages, chapters, and ad cuepoints), analytics and statistics, search and discovery, and the advertising campaign stack. All access is over HTTPS at api.spreaker.com. GET requests are public unless otherwise noted; all PUT, POST, and DELETE requests must be authenticated with an OAuth2 Bearer token. Responses are paginated with a default of 50 items per page (up to 100 via the limit parameter) and a next_url property for the following page.
+  version: '2.0'
+  contact:
+    name: Spreaker for Developers
+    url: https://developers.spreaker.com
+  license:
+    name: Proprietary
+    url: https://www.spreaker.com/terms-of-service
+servers:
+- url: https://api.spreaker.com/v2
+  description: Spreaker API v2
+security:
+- oauth2: []
+tags:
+- name: Advertising
+  description: Advertisers, campaigns, and line items for direct ad sales.
+paths:
+  /advertisers:
+    get:
+      operationId: listAdvertisers
+      tags:
+      - Advertising
+      summary: Retrieve advertisers
+      responses:
+        '200':
+          description: A list of advertisers.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createAdvertiser
+      tags:
+      - Advertising
+      summary: Create an advertiser
+      responses:
+        '200':
+          description: The created advertiser.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /advertisers/{advertiser_id}:
+    parameters:
+    - name: advertiser_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The advertiser ID.
+    get:
+      operationId: getAdvertiser
+      tags:
+      - Advertising
+      summary: Retrieve an advertiser
+      responses:
+        '200':
+          description: An advertiser.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateAdvertiser
+      tags:
+      - Advertising
+      summary: Update an advertiser
+      responses:
+        '200':
+          description: The updated advertiser.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteAdvertiser
+      tags:
+      - Advertising
+      summary: Delete an advertiser
+      responses:
+        '200':
+          description: The advertiser was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /campaigns:
+    get:
+      operationId: listCampaigns
+      tags:
+      - Advertising
+      summary: Retrieve campaigns
+      responses:
+        '200':
+          description: A list of campaigns.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCampaign
+      tags:
+      - Advertising
+      summary: Create a campaign
+      responses:
+        '200':
+          description: The created campaign.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /campaigns/{campaign_id}:
+    parameters:
+    - name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The campaign ID.
+    get:
+      operationId: getCampaign
+      tags:
+      - Advertising
+      summary: Retrieve a campaign
+      responses:
+        '200':
+          description: A campaign.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateCampaign
+      tags:
+      - Advertising
+      summary: Update a campaign
+      responses:
+        '200':
+          description: The updated campaign.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteCampaign
+      tags:
+      - Advertising
+      summary: Delete a campaign
+      responses:
+        '200':
+          description: The campaign was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /lineitems:
+    get:
+      operationId: listLineItems
+      tags:
+      - Advertising
+      summary: Retrieve line items
+      responses:
+        '200':
+          description: A list of line items.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createLineItem
+      tags:
+      - Advertising
+      summary: Create a line item
+      responses:
+        '200':
+          description: The created line item.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /lineitems/{lineitem_id}:
+    parameters:
+    - name: lineitem_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The line item ID.
+    get:
+      operationId: getLineItem
+      tags:
+      - Advertising
+      summary: Retrieve a line item
+      responses:
+        '200':
+          description: A line item.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: updateLineItem
+      tags:
+      - Advertising
+      summary: Update a line item
+      responses:
+        '200':
+          description: The updated line item.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteLineItem
+      tags:
+      - Advertising
+      summary: Delete a line item
+      responses:
+        '200':
+          description: The line item was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: The request was not authenticated with a valid OAuth2 token.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and exchange or refresh tokens at https://api.spreaker.com/oauth2/token. Access tokens are sent as a Bearer token in the Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.spreaker.com/oauth2/authorize
+          tokenUrl: https://api.spreaker.com/oauth2/token
+          refreshUrl: https://api.spreaker.com/oauth2/token
+          scopes:
+            basic: Basic access to the Spreaker API on behalf of the user.

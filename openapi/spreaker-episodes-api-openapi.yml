@@ -1,0 +1,286 @@
+openapi: 3.0.3
+info:
+  title: Spreaker Advertising Episodes API
+  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. It lets developers manage users and their social graph, podcast shows, episodes (including uploads, playback, messages, chapters, and ad cuepoints), analytics and statistics, search and discovery, and the advertising campaign stack. All access is over HTTPS at api.spreaker.com. GET requests are public unless otherwise noted; all PUT, POST, and DELETE requests must be authenticated with an OAuth2 Bearer token. Responses are paginated with a default of 50 items per page (up to 100 via the limit parameter) and a next_url property for the following page.
+  version: '2.0'
+  contact:
+    name: Spreaker for Developers
+    url: https://developers.spreaker.com
+  license:
+    name: Proprietary
+    url: https://www.spreaker.com/terms-of-service
+servers:
+- url: https://api.spreaker.com/v2
+  description: Spreaker API v2
+security:
+- oauth2: []
+tags:
+- name: Episodes
+  description: Episodes, uploads, playback, likes, bookmarks, messages, chapters, cuepoints.
+paths:
+  /shows/{show_id}/episodes:
+    parameters:
+    - $ref: '#/components/parameters/ShowId'
+    get:
+      operationId: listShowEpisodes
+      tags:
+      - Episodes
+      summary: Retrieve a show's episodes
+      responses:
+        '200':
+          description: A paginated list of episodes.
+    post:
+      operationId: uploadEpisode
+      tags:
+      - Episodes
+      summary: Upload an episode
+      description: Uploads a new episode (multipart/form-data with the audio file) to a show.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                media_file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: The created episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/drafts:
+    post:
+      operationId: createDraftEpisode
+      tags:
+      - Episodes
+      summary: Create a draft episode
+      responses:
+        '200':
+          description: The created draft episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}:
+    parameters:
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: getEpisode
+      tags:
+      - Episodes
+      summary: Retrieve an episode
+      responses:
+        '200':
+          description: An episode.
+    post:
+      operationId: updateEpisode
+      tags:
+      - Episodes
+      summary: Update an episode
+      responses:
+        '200':
+          description: The updated episode.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteEpisode
+      tags:
+      - Episodes
+      summary: Delete an episode
+      responses:
+        '200':
+          description: The episode was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/play:
+    parameters:
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: playEpisode
+      tags:
+      - Episodes
+      summary: Stream an episode
+      description: Returns the audio stream for an episode over HTTPS.
+      responses:
+        '200':
+          description: The episode audio stream.
+  /episodes/{episode_id}/download:
+    parameters:
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: downloadEpisode
+      tags:
+      - Episodes
+      summary: Download an episode
+      responses:
+        '200':
+          description: The episode audio file.
+  /users/{user_id}/episodes:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listUserEpisodes
+      tags:
+      - Episodes
+      summary: Retrieve a user's episodes
+      responses:
+        '200':
+          description: A paginated list of episodes.
+  /users/{user_id}/likes/{episode_id}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: checkLike
+      tags:
+      - Episodes
+      summary: Check if an episode is liked
+      responses:
+        '200':
+          description: Whether the user liked the episode.
+    put:
+      operationId: addLike
+      tags:
+      - Episodes
+      summary: Like an episode
+      responses:
+        '200':
+          description: The like was added.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: removeLike
+      tags:
+      - Episodes
+      summary: Unlike an episode
+      responses:
+        '200':
+          description: The like was removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/bookmarks/{episode_id}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - $ref: '#/components/parameters/EpisodeId'
+    put:
+      operationId: addBookmark
+      tags:
+      - Episodes
+      summary: Bookmark an episode
+      responses:
+        '200':
+          description: The bookmark was added.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: removeBookmark
+      tags:
+      - Episodes
+      summary: Remove a bookmark
+      responses:
+        '200':
+          description: The bookmark was removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/messages:
+    parameters:
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: listEpisodeMessages
+      tags:
+      - Episodes
+      summary: Retrieve episode messages
+      responses:
+        '200':
+          description: A paginated list of messages.
+    post:
+      operationId: createEpisodeMessage
+      tags:
+      - Episodes
+      summary: Leave a message on an episode
+      responses:
+        '200':
+          description: The created message.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/chapters:
+    parameters:
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: listEpisodeChapters
+      tags:
+      - Episodes
+      summary: Retrieve episode chapters
+      responses:
+        '200':
+          description: The episode chapters.
+    post:
+      operationId: addEpisodeChapter
+      tags:
+      - Episodes
+      summary: Add an episode chapter
+      responses:
+        '200':
+          description: The created chapter.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /episodes/{episode_id}/cuepoints:
+    parameters:
+    - $ref: '#/components/parameters/EpisodeId'
+    get:
+      operationId: listEpisodeCuepoints
+      tags:
+      - Episodes
+      summary: Retrieve episode ad cuepoints
+      responses:
+        '200':
+          description: The episode cuepoints.
+    post:
+      operationId: updateEpisodeCuepoints
+      tags:
+      - Episodes
+      summary: Update episode ad cuepoints
+      responses:
+        '200':
+          description: The updated cuepoints.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The user ID.
+    EpisodeId:
+      name: episode_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The episode ID.
+    ShowId:
+      name: show_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The show ID.
+  responses:
+    Unauthorized:
+      description: The request was not authenticated with a valid OAuth2 token.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and exchange or refresh tokens at https://api.spreaker.com/oauth2/token. Access tokens are sent as a Bearer token in the Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.spreaker.com/oauth2/authorize
+          tokenUrl: https://api.spreaker.com/oauth2/token
+          refreshUrl: https://api.spreaker.com/oauth2/token
+          scopes:
+            basic: Basic access to the Spreaker API on behalf of the user.

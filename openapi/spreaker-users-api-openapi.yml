@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  title: Spreaker Advertising Users API
+  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. It lets developers manage users and their social graph, podcast shows, episodes (including uploads, playback, messages, chapters, and ad cuepoints), analytics and statistics, search and discovery, and the advertising campaign stack. All access is over HTTPS at api.spreaker.com. GET requests are public unless otherwise noted; all PUT, POST, and DELETE requests must be authenticated with an OAuth2 Bearer token. Responses are paginated with a default of 50 items per page (up to 100 via the limit parameter) and a next_url property for the following page.
+  version: '2.0'
+  contact:
+    name: Spreaker for Developers
+    url: https://developers.spreaker.com
+  license:
+    name: Proprietary
+    url: https://www.spreaker.com/terms-of-service
+servers:
+- url: https://api.spreaker.com/v2
+  description: Spreaker API v2
+security:
+- oauth2: []
+tags:
+- name: Users
+  description: User profiles and social graph (followers, followings, blocks).
+paths:
+  /me:
+    get:
+      operationId: getAuthenticatedUser
+      tags:
+      - Users
+      summary: Retrieve the authenticated user
+      description: Returns the user associated with the OAuth2 access token.
+      responses:
+        '200':
+          description: The authenticated user.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: getUser
+      tags:
+      - Users
+      summary: Retrieve a user
+      description: Returns a single user's public profile.
+      responses:
+        '200':
+          description: A user.
+    post:
+      operationId: updateUser
+      tags:
+      - Users
+      summary: Update a user
+      description: Updates the profile of the authenticated user.
+      responses:
+        '200':
+          description: The updated user.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/followers:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listFollowers
+      tags:
+      - Users
+      summary: Retrieve a user's followers
+      responses:
+        '200':
+          description: A paginated list of followers.
+  /users/{user_id}/followings:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listFollowings
+      tags:
+      - Users
+      summary: Retrieve who a user follows
+      responses:
+        '200':
+          description: A paginated list of followed users.
+  /users/{user_id}/followings/{following_id}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    - name: following_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The ID of the user to follow or unfollow.
+    put:
+      operationId: followUser
+      tags:
+      - Users
+      summary: Follow a user
+      responses:
+        '200':
+          description: The follow relationship was created.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: unfollowUser
+      tags:
+      - Users
+      summary: Unfollow a user
+      responses:
+        '200':
+          description: The follow relationship was removed.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user_id}/blocks:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      operationId: listBlockedUsers
+      tags:
+      - Users
+      summary: Retrieve blocked users
+      responses:
+        '200':
+          description: A paginated list of blocked users.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The user ID.
+  responses:
+    Unauthorized:
+      description: The request was not authenticated with a valid OAuth2 token.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and exchange or refresh tokens at https://api.spreaker.com/oauth2/token. Access tokens are sent as a Bearer token in the Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.spreaker.com/oauth2/authorize
+          tokenUrl: https://api.spreaker.com/oauth2/token
+          refreshUrl: https://api.spreaker.com/oauth2/token
+          scopes:
+            basic: Basic access to the Spreaker API on behalf of the user.

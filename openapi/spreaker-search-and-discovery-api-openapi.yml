@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Spreaker Advertising Search and Discovery API
+  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. It lets developers manage users and their social graph, podcast shows, episodes (including uploads, playback, messages, chapters, and ad cuepoints), analytics and statistics, search and discovery, and the advertising campaign stack. All access is over HTTPS at api.spreaker.com. GET requests are public unless otherwise noted; all PUT, POST, and DELETE requests must be authenticated with an OAuth2 Bearer token. Responses are paginated with a default of 50 items per page (up to 100 via the limit parameter) and a next_url property for the following page.
+  version: '2.0'
+  contact:
+    name: Spreaker for Developers
+    url: https://developers.spreaker.com
+  license:
+    name: Proprietary
+    url: https://www.spreaker.com/terms-of-service
+servers:
+- url: https://api.spreaker.com/v2
+  description: Spreaker API v2
+security:
+- oauth2: []
+tags:
+- name: Search and Discovery
+  description: Search, explore categories, tags, and oEmbed.
+paths:
+  /search:
+    get:
+      operationId: search
+      tags:
+      - Search and Discovery
+      summary: Search shows or episodes
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The search query.
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - shows
+          - episodes
+        description: Whether to search shows or episodes.
+      responses:
+        '200':
+          description: A paginated list of matching results.
+  /explore/categories/{category_id}/items:
+    parameters:
+    - name: category_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The explore category ID.
+    get:
+      operationId: getExploreCategoryItems
+      tags:
+      - Search and Discovery
+      summary: Retrieve explore category items
+      responses:
+        '200':
+          description: The items in the explore category.
+  /tags/{tag_name}/episodes:
+    parameters:
+    - name: tag_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The tag name.
+    get:
+      operationId: getEpisodesByTag
+      tags:
+      - Search and Discovery
+      summary: Retrieve latest episodes by tag
+      responses:
+        '200':
+          description: A paginated list of episodes tagged with the given tag.
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. Authorize at https://www.spreaker.com/oauth2/authorize and exchange or refresh tokens at https://api.spreaker.com/oauth2/token. Access tokens are sent as a Bearer token in the Authorization header.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.spreaker.com/oauth2/authorize
+          tokenUrl: https://api.spreaker.com/oauth2/token
+          refreshUrl: https://api.spreaker.com/oauth2/token
+          scopes:
+            basic: Basic access to the Spreaker API on behalf of the user.
