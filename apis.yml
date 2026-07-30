@@ -10,7 +10,20 @@ description: Spreaker is a podcast hosting, distribution, and monetization platf
   API (v2) over HTTPS at api.spreaker.com, authenticated with OAuth2, covering
   users, shows, episodes, playback and messaging, analytics/statistics, search and
   discovery, and advertising campaign management.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/spreaker.png
 tags:
 - Podcasting
 - Podcast Hosting
@@ -22,144 +35,186 @@ created: '2026-07-05'
 modified: '2026-07-05'
 specificationVersion: '0.19'
 apis:
-- aid: spreaker:spreaker-users-api
-  name: Spreaker Users API
-  tags:
-  - Users
-  - Profiles
-  - Social Graph
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: spreaker:spreaker-advertising-api
+  name: Spreaker Advertising API
+  description: Advertisers, campaigns, and line items for direct ad sales.
   humanURL: https://developers.spreaker.com/api/users/
   baseURL: https://api.spreaker.com/v2
-  properties:
-  - url: https://developers.spreaker.com/guides/overview/
-    type: Documentation
-  - url: https://developers.spreaker.com/api/users/
-    type: APIReference
-  - url: openapi/spreaker-openapi.yml
-    type: OpenAPI
-  - url: collections/spreaker.postman_collection.json
-    type: PostmanCollection
-  - url: collections/spreaker.opencollection.json
-    type: OpenCollection
-  description: Retrieve and update Spreaker user profiles, resolve the authenticated
-    user via /me, and manage the social graph - followers, followings, and blocked
-    users.
-- aid: spreaker:spreaker-shows-api
-  name: Spreaker Shows API
-  tags:
-  - Shows
-  - Podcasts
-  - Catalog
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developers.spreaker.com/api/shows/
-  baseURL: https://api.spreaker.com/v2
-  properties:
-  - url: https://developers.spreaker.com/guides/overview/
-    type: Documentation
-  - url: https://developers.spreaker.com/api/shows/
-    type: APIReference
-  - url: openapi/spreaker-openapi.yml
-    type: OpenAPI
-  - url: collections/spreaker.postman_collection.json
-    type: PostmanCollection
-  - url: collections/spreaker.opencollection.json
-    type: OpenCollection
-  description: Create, retrieve, update, and delete podcast shows, list a user's
-    shows, manage favorite shows, and read supporting reference data such as show
-    categories and languages.
-- aid: spreaker:spreaker-episodes-api
-  name: Spreaker Episodes API
-  tags:
-  - Episodes
-  - Uploads
-  - Playback
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developers.spreaker.com/api/episodes/
-  baseURL: https://api.spreaker.com/v2
-  properties:
-  - url: https://developers.spreaker.com/guides/upload-an-episode/
-    type: Documentation
-  - url: https://developers.spreaker.com/api/episodes/
-    type: APIReference
-  - url: openapi/spreaker-openapi.yml
-    type: OpenAPI
-  - url: collections/spreaker.postman_collection.json
-    type: PostmanCollection
-  - url: collections/spreaker.opencollection.json
-    type: OpenCollection
-  description: Upload, update, and delete episodes, create drafts, stream and
-    download audio, and manage engagement and enrichment - likes, bookmarks,
-    listener messages, chapters, and ad cuepoints.
-- aid: spreaker:spreaker-statistics-api
-  name: Spreaker Statistics API
-  tags:
-  - Statistics
-  - Analytics
-  - Reporting
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developers.spreaker.com/api/statistics/
-  baseURL: https://api.spreaker.com/v2
-  properties:
-  - url: https://developers.spreaker.com/guides/overview/
-    type: Documentation
-  - url: https://developers.spreaker.com/api/statistics/
-    type: APIReference
-  - url: openapi/spreaker-openapi.yml
-    type: OpenAPI
-  - url: collections/spreaker.postman_collection.json
-    type: PostmanCollection
-  - url: collections/spreaker.opencollection.json
-    type: OpenCollection
-  description: Read playback, likes, followers, source, device, OS, and geographic
-    analytics at the user, show, and episode level, plus rolled-up totals across a
-    user's shows and episodes.
-- aid: spreaker:spreaker-search-discovery-api
-  name: Spreaker Search and Discovery API
-  tags:
-  - Search
-  - Discovery
-  - Explore
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developers.spreaker.com/api/search/
-  baseURL: https://api.spreaker.com/v2
-  properties:
-  - url: https://developers.spreaker.com/guides/overview/
-    type: Documentation
-  - url: https://developers.spreaker.com/api/search/
-    type: APIReference
-  - url: openapi/spreaker-openapi.yml
-    type: OpenAPI
-  - url: collections/spreaker.postman_collection.json
-    type: PostmanCollection
-  - url: collections/spreaker.opencollection.json
-    type: OpenCollection
-  description: Search shows and episodes globally or scoped to an author or show,
-    browse explore categories, list latest episodes by tag, and embed players via
-    the oEmbed provider.
-- aid: spreaker:spreaker-advertising-campaigns-api
-  name: Spreaker Advertising Campaigns API
   tags:
   - Advertising
-  - Campaigns
-  - Monetization
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developers.spreaker.com/api/advertisers/
-  baseURL: https://api.spreaker.com/v2
   properties:
-  - url: https://developers.spreaker.com/guides/overview/
-    type: Documentation
-  - url: https://developers.spreaker.com/api/advertisers/
-    type: APIReference
-  - url: openapi/spreaker-openapi.yml
-    type: OpenAPI
-  - url: collections/spreaker.postman_collection.json
-    type: PostmanCollection
-  - url: collections/spreaker.opencollection.json
-    type: OpenCollection
-  description: Manage the direct ad-sales stack available on the Publisher plan -
-    advertisers, campaigns, and targeted line items - including country targeting
-    for campaign delivery.
+  - type: OpenAPI
+    url: openapi/spreaker-advertising-api-openapi.yml
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/overview/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/users/
+  - type: PostmanCollection
+    url: collections/spreaker.postman_collection.json
+  - type: OpenCollection
+    url: collections/spreaker.opencollection.json
+  - type: APIReference
+    url: https://developers.spreaker.com/api/shows/
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/upload-an-episode/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/episodes/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/statistics/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/search/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/advertisers/
+- aid: spreaker:spreaker-episodes-api
+  name: Spreaker Episodes API
+  description: Episodes, uploads, playback, likes, bookmarks, messages, chapters, cuepoints.
+  humanURL: https://developers.spreaker.com/api/users/
+  baseURL: https://api.spreaker.com/v2
+  tags:
+  - Episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/spreaker-episodes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/overview/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/users/
+  - type: PostmanCollection
+    url: collections/spreaker.postman_collection.json
+  - type: OpenCollection
+    url: collections/spreaker.opencollection.json
+  - type: APIReference
+    url: https://developers.spreaker.com/api/shows/
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/upload-an-episode/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/episodes/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/statistics/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/search/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/advertisers/
+- aid: spreaker:spreaker-search-and-discovery-api
+  name: Spreaker Search and Discovery API
+  description: Search, explore categories, tags, and oEmbed.
+  humanURL: https://developers.spreaker.com/api/users/
+  baseURL: https://api.spreaker.com/v2
+  tags:
+  - Search and Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/spreaker-search-and-discovery-api-openapi.yml
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/overview/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/users/
+  - type: PostmanCollection
+    url: collections/spreaker.postman_collection.json
+  - type: OpenCollection
+    url: collections/spreaker.opencollection.json
+  - type: APIReference
+    url: https://developers.spreaker.com/api/shows/
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/upload-an-episode/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/episodes/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/statistics/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/search/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/advertisers/
+- aid: spreaker:spreaker-shows-api
+  name: Spreaker Shows API
+  description: Podcast shows, favorites, and reference data.
+  humanURL: https://developers.spreaker.com/api/users/
+  baseURL: https://api.spreaker.com/v2
+  tags:
+  - Shows
+  properties:
+  - type: OpenAPI
+    url: openapi/spreaker-shows-api-openapi.yml
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/overview/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/users/
+  - type: PostmanCollection
+    url: collections/spreaker.postman_collection.json
+  - type: OpenCollection
+    url: collections/spreaker.opencollection.json
+  - type: APIReference
+    url: https://developers.spreaker.com/api/shows/
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/upload-an-episode/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/episodes/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/statistics/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/search/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/advertisers/
+- aid: spreaker:spreaker-statistics-api
+  name: Spreaker Statistics API
+  description: Playback and engagement analytics at user, show, and episode level.
+  humanURL: https://developers.spreaker.com/api/users/
+  baseURL: https://api.spreaker.com/v2
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/spreaker-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/overview/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/users/
+  - type: PostmanCollection
+    url: collections/spreaker.postman_collection.json
+  - type: OpenCollection
+    url: collections/spreaker.opencollection.json
+  - type: APIReference
+    url: https://developers.spreaker.com/api/shows/
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/upload-an-episode/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/episodes/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/statistics/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/search/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/advertisers/
+- aid: spreaker:spreaker-users-api
+  name: Spreaker Users API
+  description: User profiles and social graph (followers, followings, blocks).
+  humanURL: https://developers.spreaker.com/api/users/
+  baseURL: https://api.spreaker.com/v2
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/spreaker-users-api-openapi.yml
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/overview/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/users/
+  - type: PostmanCollection
+    url: collections/spreaker.postman_collection.json
+  - type: OpenCollection
+    url: collections/spreaker.opencollection.json
+  - type: APIReference
+    url: https://developers.spreaker.com/api/shows/
+  - type: Documentation
+    url: https://developers.spreaker.com/guides/upload-an-episode/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/episodes/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/statistics/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/search/
+  - type: APIReference
+    url: https://developers.spreaker.com/api/advertisers/
 common:
 - type: AgenticAccess
   url: agentic-access/spreaker-agentic-access.yml
