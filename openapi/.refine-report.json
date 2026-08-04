@@ -1,0 +1,24 @@
+{
+  "provider": "spreaker",
+  "sources": [
+    "spreaker-advertising-api-openapi.yml",
+    "spreaker-episodes-api-openapi.yml",
+    "spreaker-search-and-discovery-api-openapi.yml",
+    "spreaker-shows-api-openapi.yml",
+    "spreaker-statistics-api-openapi.yml",
+    "spreaker-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "spreaker-advertising-api-openapi.yml",
+    "spreaker-episodes-api-openapi.yml",
+    "spreaker-search-and-discovery-api-openapi.yml",
+    "spreaker-shows-api-openapi.yml",
+    "spreaker-statistics-api-openapi.yml",
+    "spreaker-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
