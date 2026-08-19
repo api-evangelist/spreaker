@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker Advertising Statistics API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.spreaker.com/oauth2/authorize",
+      "accessTokenUrl": "https://api.spreaker.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve overall user statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/statistics",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve overall user statistics"
+        },
+        {
+          "info": {
+            "name": "Retrieve user play statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/statistics/plays",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve user play statistics"
+        },
+        {
+          "info": {
+            "name": "Retrieve user geographic statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/statistics/geographics",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve user geographic statistics"
+        },
+        {
+          "info": {
+            "name": "Retrieve show play statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/shows/:show_id/statistics/plays",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Retrieve show play statistics"
+        },
+        {
+          "info": {
+            "name": "Retrieve episode play statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/statistics/plays",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Retrieve episode play statistics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

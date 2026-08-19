@@ -1,0 +1,447 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker Advertising Episodes API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.spreaker.com/oauth2/authorize",
+      "accessTokenUrl": "https://api.spreaker.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a show's episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/shows/:show_id/episodes",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a show's episodes"
+        },
+        {
+          "info": {
+            "name": "Upload an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/shows/:show_id/episodes",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "media_file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Uploads a new episode (multipart/form-data with the audio file) to a show."
+        },
+        {
+          "info": {
+            "name": "Create a draft episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/episodes/drafts"
+          },
+          "docs": "Create a draft episode"
+        },
+        {
+          "info": {
+            "name": "Retrieve an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Retrieve an episode"
+        },
+        {
+          "info": {
+            "name": "Update an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Update an episode"
+        },
+        {
+          "info": {
+            "name": "Delete an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Delete an episode"
+        },
+        {
+          "info": {
+            "name": "Stream an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/play",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Returns the audio stream for an episode over HTTPS."
+        },
+        {
+          "info": {
+            "name": "Download an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/download",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Download an episode"
+        },
+        {
+          "info": {
+            "name": "Retrieve a user's episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/episodes",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a user's episodes"
+        },
+        {
+          "info": {
+            "name": "Check if an episode is liked",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/likes/:episode_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Check if an episode is liked"
+        },
+        {
+          "info": {
+            "name": "Like an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/users/:user_id/likes/:episode_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Like an episode"
+        },
+        {
+          "info": {
+            "name": "Unlike an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/users/:user_id/likes/:episode_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Unlike an episode"
+        },
+        {
+          "info": {
+            "name": "Bookmark an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/users/:user_id/bookmarks/:episode_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Bookmark an episode"
+        },
+        {
+          "info": {
+            "name": "Remove a bookmark",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/users/:user_id/bookmarks/:episode_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Remove a bookmark"
+        },
+        {
+          "info": {
+            "name": "Retrieve episode messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/messages",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Retrieve episode messages"
+        },
+        {
+          "info": {
+            "name": "Leave a message on an episode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/messages",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Leave a message on an episode"
+        },
+        {
+          "info": {
+            "name": "Retrieve episode chapters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/chapters",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Retrieve episode chapters"
+        },
+        {
+          "info": {
+            "name": "Add an episode chapter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/chapters",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Add an episode chapter"
+        },
+        {
+          "info": {
+            "name": "Retrieve episode ad cuepoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/cuepoints",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Retrieve episode ad cuepoints"
+        },
+        {
+          "info": {
+            "name": "Update episode ad cuepoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/episodes/:episode_id/cuepoints",
+            "params": [
+              {
+                "name": "episode_id",
+                "value": "",
+                "type": "path",
+                "description": "The episode ID."
+              }
+            ]
+          },
+          "docs": "Update episode ad cuepoints"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

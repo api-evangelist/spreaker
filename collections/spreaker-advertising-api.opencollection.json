@@ -1,0 +1,267 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker Advertising API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.spreaker.com/oauth2/authorize",
+      "accessTokenUrl": "https://api.spreaker.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Advertising",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve advertisers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/advertisers"
+          },
+          "docs": "Retrieve advertisers"
+        },
+        {
+          "info": {
+            "name": "Create an advertiser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/advertisers"
+          },
+          "docs": "Create an advertiser"
+        },
+        {
+          "info": {
+            "name": "Retrieve an advertiser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/advertisers/:advertiser_id",
+            "params": [
+              {
+                "name": "advertiser_id",
+                "value": "",
+                "type": "path",
+                "description": "The advertiser ID."
+              }
+            ]
+          },
+          "docs": "Retrieve an advertiser"
+        },
+        {
+          "info": {
+            "name": "Update an advertiser",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/advertisers/:advertiser_id",
+            "params": [
+              {
+                "name": "advertiser_id",
+                "value": "",
+                "type": "path",
+                "description": "The advertiser ID."
+              }
+            ]
+          },
+          "docs": "Update an advertiser"
+        },
+        {
+          "info": {
+            "name": "Delete an advertiser",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/advertisers/:advertiser_id",
+            "params": [
+              {
+                "name": "advertiser_id",
+                "value": "",
+                "type": "path",
+                "description": "The advertiser ID."
+              }
+            ]
+          },
+          "docs": "Delete an advertiser"
+        },
+        {
+          "info": {
+            "name": "Retrieve campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/campaigns"
+          },
+          "docs": "Retrieve campaigns"
+        },
+        {
+          "info": {
+            "name": "Create a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/campaigns"
+          },
+          "docs": "Create a campaign"
+        },
+        {
+          "info": {
+            "name": "Retrieve a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/campaigns/:campaign_id",
+            "params": [
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "The campaign ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a campaign"
+        },
+        {
+          "info": {
+            "name": "Update a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/campaigns/:campaign_id",
+            "params": [
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "The campaign ID."
+              }
+            ]
+          },
+          "docs": "Update a campaign"
+        },
+        {
+          "info": {
+            "name": "Delete a campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/campaigns/:campaign_id",
+            "params": [
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "The campaign ID."
+              }
+            ]
+          },
+          "docs": "Delete a campaign"
+        },
+        {
+          "info": {
+            "name": "Retrieve line items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/lineitems"
+          },
+          "docs": "Retrieve line items"
+        },
+        {
+          "info": {
+            "name": "Create a line item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/lineitems"
+          },
+          "docs": "Create a line item"
+        },
+        {
+          "info": {
+            "name": "Retrieve a line item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/lineitems/:lineitem_id",
+            "params": [
+              {
+                "name": "lineitem_id",
+                "value": "",
+                "type": "path",
+                "description": "The line item ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a line item"
+        },
+        {
+          "info": {
+            "name": "Update a line item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/lineitems/:lineitem_id",
+            "params": [
+              {
+                "name": "lineitem_id",
+                "value": "",
+                "type": "path",
+                "description": "The line item ID."
+              }
+            ]
+          },
+          "docs": "Update a line item"
+        },
+        {
+          "info": {
+            "name": "Delete a line item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/lineitems/:lineitem_id",
+            "params": [
+              {
+                "name": "lineitem_id",
+                "value": "",
+                "type": "path",
+                "description": "The line item ID."
+              }
+            ]
+          },
+          "docs": "Delete a line item"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker Advertising Users API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.spreaker.com/oauth2/authorize",
+      "accessTokenUrl": "https://api.spreaker.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/me"
+          },
+          "docs": "Returns the user associated with the OAuth2 access token."
+        },
+        {
+          "info": {
+            "name": "Retrieve a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Returns a single user's public profile."
+        },
+        {
+          "info": {
+            "name": "Update a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/users/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Updates the profile of the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Retrieve a user's followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followers",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a user's followers"
+        },
+        {
+          "info": {
+            "name": "Retrieve who a user follows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followings",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve who a user follows"
+        },
+        {
+          "info": {
+            "name": "Follow a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followings/:following_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "following_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the user to follow or unfollow."
+              }
+            ]
+          },
+          "docs": "Follow a user"
+        },
+        {
+          "info": {
+            "name": "Unfollow a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/users/:user_id/followings/:following_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "following_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the user to follow or unfollow."
+              }
+            ]
+          },
+          "docs": "Unfollow a user"
+        },
+        {
+          "info": {
+            "name": "Retrieve blocked users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/blocks",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve blocked users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

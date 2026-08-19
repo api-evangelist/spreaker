@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker Advertising Search and Discovery API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.spreaker.com/oauth2/authorize",
+      "accessTokenUrl": "https://api.spreaker.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search and Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search shows or episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Whether to search shows or episodes."
+              }
+            ]
+          },
+          "docs": "Search shows or episodes"
+        },
+        {
+          "info": {
+            "name": "Retrieve explore category items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/explore/categories/:category_id/items",
+            "params": [
+              {
+                "name": "category_id",
+                "value": "",
+                "type": "path",
+                "description": "The explore category ID."
+              }
+            ]
+          },
+          "docs": "Retrieve explore category items"
+        },
+        {
+          "info": {
+            "name": "Retrieve latest episodes by tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/tags/:tag_name/episodes",
+            "params": [
+              {
+                "name": "tag_name",
+                "value": "",
+                "type": "path",
+                "description": "The tag name."
+              }
+            ]
+          },
+          "docs": "Retrieve latest episodes by tag"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

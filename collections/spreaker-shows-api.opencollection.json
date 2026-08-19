@@ -1,0 +1,208 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spreaker Advertising Shows API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.spreaker.com/oauth2/authorize",
+      "accessTokenUrl": "https://api.spreaker.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a show",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/shows"
+          },
+          "docs": "Creates a new podcast show for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Retrieve a show",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a show"
+        },
+        {
+          "info": {
+            "name": "Update a show",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spreaker.com/v2/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Update a show"
+        },
+        {
+          "info": {
+            "name": "Delete a show",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/shows/:show_id",
+            "params": [
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Delete a show"
+        },
+        {
+          "info": {
+            "name": "Retrieve a user's shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/shows",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a user's shows"
+        },
+        {
+          "info": {
+            "name": "Retrieve a user's favorite shows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/users/:user_id/favorites",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a user's favorite shows"
+        },
+        {
+          "info": {
+            "name": "Add a show to favorites",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.spreaker.com/v2/users/:user_id/favorites/:show_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Add a show to favorites"
+        },
+        {
+          "info": {
+            "name": "Remove a show from favorites",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spreaker.com/v2/users/:user_id/favorites/:show_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "show_id",
+                "value": "",
+                "type": "path",
+                "description": "The show ID."
+              }
+            ]
+          },
+          "docs": "Remove a show from favorites"
+        },
+        {
+          "info": {
+            "name": "List show categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/show-categories"
+          },
+          "docs": "List show categories"
+        },
+        {
+          "info": {
+            "name": "List show languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spreaker.com/v2/show-languages"
+          },
+          "docs": "List show languages"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
