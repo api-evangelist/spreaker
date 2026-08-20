@@ -191,6 +191,8 @@ apis:
   humanURL: https://developers.spreaker.com/api/users/
   baseURL: https://api.spreaker.com/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
