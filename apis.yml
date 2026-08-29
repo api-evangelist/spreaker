@@ -10,6 +10,18 @@ description: Spreaker is a podcast hosting, distribution, and monetization platf
   API (v2) over HTTPS at api.spreaker.com, authenticated with OAuth2, covering
   users, shows, episodes, playback and messaging, analytics/statistics, search and
   discovery, and advertising campaign management.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
