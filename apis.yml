@@ -230,6 +230,9 @@ apis:
   - type: APIReference
     url: https://developers.spreaker.com/api/advertisers/
 common:
+- type: CapabilityMap
+  url: capabilities/spreaker-capability-edges.yml
+  name: Spreaker Business Capability Map
 - type: AgenticAccess
   url: agentic-access/spreaker-agentic-access.yml
 - type: VulnerabilityDisclosure

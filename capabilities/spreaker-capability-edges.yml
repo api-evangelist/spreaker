@@ -1,0 +1,38 @@
+slug: spreaker
+provider: Spreaker
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Advertising
+  spec_file: spreaker-advertising-api-openapi.yml
+  capability_id: BC-3760
+  capability_id_l1: BC-3760
+  capability_name: Advertising Sales & Operations Management
+  confidence: 0.85
+  evidence: POST /advertisers  createAdvertiser  Create an advertiser; POST /campaigns  createCampaign  Create
+    a campaign; POST /lineitems  createLineItem  Create a line item
+  reason: Advertiser, campaign and line-item CRUD is the advertising sales and operations stack for a
+    podcast monetisation platform. L2 left null because the surface spans sales booking and trafficking
+    without naming either specifically.
+- tag: Statistics
+  spec_file: spreaker-statistics-api-openapi.yml
+  capability_id: BC-3770.30
+  capability_id_l1: BC-3770
+  capability_name: Content Performance Analytics
+  confidence: 0.72
+  evidence: GET /shows/{show_id}/statistics/plays  getShowPlayStatistics  Retrieve show play statistics;
+    GET /users/{user_id}/statistics/geographics
+  reason: Operations return play and geographic listening statistics per show and episode on a podcast
+    hosting platform — i.e. capture and analysis of consumption telemetry for content. Best fits Audience
+    Measurement & Insights, most specifically performance analytics by title, though the surface also
+    touches raw telemetry capture, hence moderate confidence on the L2.
