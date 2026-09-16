@@ -113,6 +113,8 @@ apis:
   humanURL: https://developers.spreaker.com/api/users/
   baseURL: https://api.spreaker.com/v2
   tags:
+  - Search & Discovery
+  tags_raw:
   - Search and Discovery
   properties:
   - type: OpenAPI
