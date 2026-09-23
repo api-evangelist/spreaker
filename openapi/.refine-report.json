@@ -1,12 +1,7 @@
 {
   "provider": "spreaker",
   "sources": [
-    "spreaker-advertising-api-openapi.yml",
-    "spreaker-episodes-api-openapi.yml",
-    "spreaker-search-and-discovery-api-openapi.yml",
-    "spreaker-shows-api-openapi.yml",
-    "spreaker-statistics-api-openapi.yml",
-    "spreaker-users-api-openapi.yml"
+    "_original/spreaker-openapi.yml"
   ],
   "outputs": [
     "spreaker-advertising-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "spreaker-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "spreaker-advertising-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spreaker-episodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spreaker-search-and-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spreaker-shows-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spreaker-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spreaker-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

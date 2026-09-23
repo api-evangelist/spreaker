@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Spreaker Advertising API
-  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia. It lets developers manage users and their social graph, podcast shows, episodes (including uploads, playback, messages, chapters, and ad cuepoints), analytics and statistics, search and discovery, and the advertising campaign stack. All access is over HTTPS at api.spreaker.com. GET requests are public unless otherwise noted; all PUT, POST, and DELETE requests must be authenticated with an OAuth2 Bearer token. Responses are paginated with a default of 50 items per page (up to 100 via the limit parameter) and a next_url property for the following page.
+  description: The Spreaker API (v2) is a REST API for the Spreaker podcast hosting, distribution, and monetization platform, owned by iHeartMedia.
   version: '2.0'
   contact:
     name: Spreaker for Developers
