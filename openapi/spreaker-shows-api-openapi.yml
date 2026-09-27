@@ -127,13 +127,6 @@ paths:
           description: The list of supported languages.
 components:
   parameters:
-    UserId:
-      name: user_id
-      in: path
-      required: true
-      schema:
-        type: integer
-      description: The user ID.
     ShowId:
       name: show_id
       in: path
@@ -141,6 +134,13 @@ components:
       schema:
         type: integer
       description: The show ID.
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The user ID.
   responses:
     Unauthorized:
       description: The request was not authenticated with a valid OAuth2 token.

@@ -85,20 +85,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   parameters:
-    UserId:
-      name: user_id
-      in: path
-      required: true
-      schema:
-        type: integer
-      description: The user ID.
-    ShowId:
-      name: show_id
-      in: path
-      required: true
-      schema:
-        type: integer
-      description: The show ID.
     EpisodeId:
       name: episode_id
       in: path
@@ -106,6 +92,20 @@ components:
       schema:
         type: integer
       description: The episode ID.
+    ShowId:
+      name: show_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The show ID.
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: The user ID.
   responses:
     Unauthorized:
       description: The request was not authenticated with a valid OAuth2 token.
