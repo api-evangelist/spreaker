@@ -44,7 +44,7 @@ tags:
 - Monetization
 - Analytics
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: spreaker:spreaker-advertising-api
@@ -232,6 +232,8 @@ apis:
   - type: APIReference
     url: https://developers.spreaker.com/api/advertisers/
 common:
+- url: https://blog.spreaker.com/feed/
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/spreaker-capability-edges.yml
   name: Spreaker Business Capability Map
