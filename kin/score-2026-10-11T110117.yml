@@ -1,24 +1,22 @@
-# Kin Score artifact — spreaker — 2026-09-06T211804
+# Kin Score artifact — spreaker — 2026-10-11T110117
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: spreaker
-  schema_version: 0.19.0
-  scored_at: '2026-09-06'
-  run_ts: 2026-09-06T211804
-  composite: 38.5
+  schema_version: 0.23.0
+  scored_at: '2026-10-11'
+  run_ts: 2026-10-11T110117
+  composite: 37.0
   band: thin
   facets:
-    discoverability: 68.5
-    contract_quality: 54.6
-    governance: 0.0
-    operational_transparency: 31.6
-    developer_ergonomics: 29.8
-    commercial_clarity: 39.5
+    discoverability: 66.1
+    contract_quality: 49.5
     contract_governance: 0.0
-    access_clarity: 39.5
+    operational_transparency: 28.4
+    developer_ergonomics: 29.8
+    access_clarity: 36.3
   agent_readiness:
-    score: 24.8
+    score: 22.9
     band: agent-aware
     dimensions:
       spec_presence: true
@@ -29,7 +27,7 @@ kin_score:
       idempotency: false
       error_semantics: false
       openapi_examples: false
-      rate_limit_signal: documented
+      rate_limit_signal: derived
       event_surface_described: false
       agent_skills: false
       well_known_catalog: false
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 27.5
+    matched_via: fallback
   provenance:
     agentic_access: derived
     contracts:
