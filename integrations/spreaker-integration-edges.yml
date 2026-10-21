@@ -1,0 +1,112 @@
+edges:
+- partner_name: Podcast Index (apps directory)
+  partner: podcastindex
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://podcastindex.org/apps
+  category: open podcast namespace (Podcasting 2.0)
+  contract_reference:
+    register: Podcast Index apps directory (podcastindex.org/api/apps)
+    standard: 'podcast: RSS namespace (Podcasting 2.0)'
+    spec_file: null
+    role: podcastindex-listed-app
+    registered_name: Spreaker from iHeart
+    register_id: https://www.spreaker.com
+    app_types:
+    - hosting
+    - podcast player
+    supported_elements:
+    - OP3
+    - Podping
+    - Transcript
+    matched_domain: spreaker.com
+    matched_by: domain
+    signal_note: 'participation only: the directory is self-listed and tests nothing (no certified_products); supported_elements
+      is a per-edge signal, never counted'
+    detected_by: sweep-podcasting-2-0.py
+    detected: '2026-10-21'
+  detected_by: sweep-podcasting-2-0.py
+  first_seen: '2026-10-21'
+- partner_name: IAB Tech Lab Podcast Measurement compliance
+  partner: iab-tech-lab
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://iabtechlab.com/compliance-programs/compliant-companies/
+  category: podcast measurement certification
+  contract_reference:
+    register: 'IAB Tech Lab compliant companies: Podcast Measurement (iabtechlab.com/compliance-programs/compliant-companies/)'
+    standard: IAB Tech Lab Podcast Measurement Technical Guidelines
+    spec_file: null
+    role: iab-podcast-measurement-compliant
+    registered_name: Spreaker
+    register_id: https://compliance.iabtechnologylab.com/compliant-companies-certs/1741103438643-Spreaker_-_IAB_Podcast_Measurement_Report_3.4.2025.pdf
+    matched_domain: spreaker.com
+    matched_by: domain
+    certified_products:
+    - product_type: podcast measurement
+      standard_version: '2.2'
+      metrics:
+      - Download
+      - Listener
+      last_certified: '2025-03-04'
+      lapsed: true
+    signal_note: certified_products = ONE entry (product type podcast measurement); metrics and version are context;
+      lapsed when last certified is more than 365 days ago (annual renewal)
+    detected_by: sweep-podcasting-2-0.py
+    detected: '2026-10-21'
+  detected_by: sweep-podcasting-2-0.py
+  first_seen: '2026-10-21'
+- partner_name: Apple (own)
+  partner: apple
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.spreaker.com
+  mirror_of: apple/integrations/apple-integration-edges.yml
+  apps:
+  - Spreaker
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: podcast hosting
+- partner_name: Spotify (own)
+  partner: spotify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://help.spreaker.com/en/articles/3753192-distributing-your-podcast-on-spotify
+  mirror_of: spotify/integrations/spotify-integration-edges.yml
+  apps:
+  - Spreaker
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: podcast hosting
+generated: '2026-10-21'
+method: searched
+source:
+- https://podcastindex.org/api/apps
+- https://raw.githubusercontent.com/Podcastindex-org/podcast-namespace/main/docs/element-support.md
+- https://iabtechlab.com/compliance-programs/compliant-companies/
+- https://podcasters.apple.com/partner-search
+- https://support.spotify.com/us/creators/article/getting-your-podcast-on-spotify/
+checked:
+- https://iabtechlab.com/compliance-programs/compliant-companies/
+- https://podcasters.apple.com/partner-search
+- https://podcastindex.org/api/apps
+- https://raw.githubusercontent.com/Podcastindex-org/podcast-namespace/main/docs/element-support.md
+- https://support.spotify.com/us/creators/article/getting-your-podcast-on-spotify/
